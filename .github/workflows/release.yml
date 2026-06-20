@@ -1,0 +1,81 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check
+        run: npx astro check
+
+      - name: Build site
+        run: npm run build
+
+      - name: Package dist
+        run: |
+          cd dist
+          zip -r ../chords-dist.zip .
+          cd ..
+          ls -la chords-dist.zip
+
+      - name: Determine release tag
+        id: tag
+        run: |
+          STAMP=$(date -u +%Y%m%d-%H%M%S)
+          SHORT_SHA=${GITHUB_SHA::7}
+          echo "tag=nightly/${STAMP}-${SHORT_SHA}" >> "$GITHUB_OUTPUT"
+          echo "name=Nightly ${STAMP} (${SHORT_SHA})" >> "$GITHUB_OUTPUT"
+
+      - name: Create release and upload asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: ${{ steps.tag.outputs.name }}
+          generate_release_notes: true
+          files: chords-dist.zip
+          body: |
+            Built from commit `${{ github.sha }}`.
+            Asset: `chords-dist.zip` (extracted contents of `dist/`).
+
+  cleanup-old:
+    runs-on: ubuntu-latest
+    needs: build-and-release
+    if: success()
+    permissions:
+      contents: write
+    steps:
+      - name: Delete older nightly releases (keep latest 5)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release list --repo "$GITHUB_REPOSITORY" --limit 100 \
+            --json tagName,createdAt,isPrerelease \
+            --jq '.[] | select(.tagName | startswith("nightly/")) | .tagName' \
+            > /tmp/all_nightlies.txt
+          TOTAL=$(wc -l < /tmp/all_nightlies.txt | tr -d ' ')
+          KEEP=5
+          if [ "$TOTAL" -gt "$KEEP" ]; then
+            tail -n +$((KEEP + 1)) /tmp/all_nightlies.txt | while read -r TAG; do
+              echo "deleting $TAG"
+              gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --yes || true
+            done
+          else
+            echo "only $TOTAL nightly releases — nothing to prune"
+          fi
