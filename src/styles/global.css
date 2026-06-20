@@ -1,25 +1,37 @@
-/* ---------- TOKENS ------------------------------------------------------ */
+/* ---------- TOKENS ------------------------------------------------------
+   El Cancçoner — quadern de fulls quadriculats blaus.
+   Blanc + blau. Tipografia a mà però llegible.
+*/
 
 :root {
-  /* Paper + ink — Tour Book / Riso palette */
-  --paper:        #efe8d6;   /* warm cream stock */
-  --paper-deep:   #e6dec7;   /* aged paper edge */
-  --paper-shadow: #d9d0b6;   /* deeper page corner */
-  --ink:          #181410;   /* deep printer ink */
-  --ink-soft:     #3d342a;   /* secondary ink */
-  --ink-fade:     #7a6f5d;   /* marginalia */
-  --rule:         #b9ad94;   /* hairline rule */
-  --blood:        #c0321d;   /* riso red overlay */
-  --blood-soft:   #d96451;
-  --blue:         #2b4d8a;   /* riso blue overlay */
-  --blue-soft:    #5a78b4;
-  --gold:         #b48a2c;
+  /* Paper + ink — libreta azul */
+  --paper:        #ffffff;          /* full blanc */
+  --paper-deep:   #f5f8fc;          /* lleuger tint blavós per a capes */
+  --paper-shadow: #e8eff8;          /* més fons per cantonades */
+  --ink:          #15315a;          /* blau marí profund — tinta principal */
+  --ink-soft:     #2b4a7c;          /* blau mitjà */
+  --ink-fade:     #6b86b3;          /* blau clar per a marginalia */
+  --rule:         #c8d6e8;          /* blau pàl·lid per a línies fines */
+  --rule-soft:    #e0eaf5;
+  --blue:         #2563eb;          /* blau viu per a accents */
+  --blue-soft:    #93c5fd;
+  --blue-deep:    #1e40af;
+  --red:          #dc2626;          /* vermell (compte! correccions) */
+  --red-soft:     #fca5a5;
+  --gold:         #c69422;          /* daurat per a marques especials */
+  --green:        #2f8a52;
 
-  /* Typography */
-  --serif:    "Fraunces", "Times New Roman", Georgia, serif;
-  --sans:     "Newsreader", "Iowan Old Style", Georgia, serif;
-  --mono:     "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
-  --display:  "Fraunces", "Times New Roman", Georgia, serif;
+  /* Quadrícula blava (paper cuadriculat) */
+  --grid-color:   rgba(37, 99, 235, 0.085);
+  --grid-color-strong: rgba(37, 99, 235, 0.16);
+  --grid-size:    22px;
+
+  /* Tipografia — mà però clara */
+  --hand:    "Kalam", "Caveat", "Comic Sans MS", "Bradley Hand", cursive;
+  --hand-alt: "Caveat", "Kalam", "Bradley Hand", cursive;
+  --mono:    "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+  --display: "Kalam", "Caveat", "Bradley Hand", cursive;
+  --sans:    "Kalam", "Caveat", "Bradley Hand", cursive;
 
   /* Motion */
   --ease:     cubic-bezier(.2, .7, .2, 1);
@@ -70,52 +82,63 @@ html {
 }
 
 body {
-  font-family: var(--sans);
+  font-family: var(--hand);
   font-weight: 400;
-  font-style: normal;
-  font-feature-settings: "kern", "liga", "calt";
   color: var(--ink);
-  background:
-    radial-gradient(1200px 700px at 10% -10%, rgba(192, 50, 29, 0.06), transparent 60%),
-    radial-gradient(900px 600px at 95% 110%, rgba(43, 77, 138, 0.07), transparent 55%),
-    var(--paper);
-  background-attachment: fixed;
-  line-height: 1.55;
+  /* Full blanc amb quadrícula blava subtil que es desplaça amb el contingut */
+  background-color: var(--paper);
+  background-image:
+    /* Línies verticals i horitzontals blaves subtils (quadernet) */
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px),
+    /* Línia blava forta cada 5 quadrets (marginalia) */
+    linear-gradient(to right, var(--grid-color-strong) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color-strong) 1px, transparent 1px);
+  background-size:
+    var(--grid-size) var(--grid-size),
+    var(--grid-size) var(--grid-size),
+    calc(var(--grid-size) * 5) calc(var(--grid-size) * 5),
+    calc(var(--grid-size) * 5) calc(var(--grid-size) * 5);
+  background-position: 0 0;
+  line-height: 1.6;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Paper grain overlay (riso texture) */
+/* Marge vermell a l'esquerra (margin roja del quadern) — visible a tot el document */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: clamp(56px, 9vw, 96px);
+  width: 1.5px;
+  background: rgba(220, 38, 38, 0.32);
   pointer-events: none;
-  z-index: 0;
-  opacity: .35;
-  mix-blend-mode: multiply;
-  background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.094  0 0 0 0 0.078  0 0 0 0 0.063  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  background-size: 320px 320px;
+  z-index: 1;
 }
 
-/* Misregistration rule — riso signature */
+/* Petita ombra al marge dret (com una pàgina doble) */
 body::after {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: clamp(40px, 6vw, 80px);
+  background: linear-gradient(
+    to left,
+    rgba(21, 49, 90, 0.05),
+    transparent 60%
+  );
   pointer-events: none;
-  z-index: 0;
-  opacity: .08;
-  background-image:
-    radial-gradient(circle at 80% 20%, var(--blood), transparent 32%),
-    radial-gradient(circle at 18% 78%, var(--blue), transparent 30%);
+  z-index: 1;
 }
 
-main, header, footer { position: relative; z-index: 1; }
+main, header, footer { position: relative; z-index: 2; }
 
-::selection { background: var(--blood); color: var(--paper); }
+::selection { background: var(--blue); color: var(--paper); }
 
 /* ---------- TYPOGRAPHY ------------------------------------------------- */
 
@@ -130,24 +153,22 @@ main, header, footer { position: relative; z-index: 1; }
 
 .display {
   font-family: var(--display);
-  font-weight: 600;
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-  line-height: .9;
-  letter-spacing: -0.025em;
+  font-weight: 700;
+  line-height: .92;
+  letter-spacing: -0.015em;
 }
 
 .display em {
   font-style: italic;
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-  color: var(--blood);
+  color: var(--blue);
 }
 
 .lede {
-  font-family: var(--sans);
+  font-family: var(--hand);
   font-size: 1.15rem;
   font-style: italic;
   color: var(--ink-soft);
-  line-height: 1.45;
+  line-height: 1.55;
   max-width: 36em;
 }
 
@@ -190,9 +211,9 @@ main, header, footer { position: relative; z-index: 1; }
 }
 
 .tag--blood {
-  background: var(--blood);
+  background: var(--red);
   color: var(--paper);
-  border-color: var(--blood);
+  border-color: var(--red);
 }
 
 /* ---------- STAGE ENTER ANIMATION -------------------------------------- */

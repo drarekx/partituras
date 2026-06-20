@@ -16,20 +16,25 @@ if (!song) {
 ---
 
 <Layout title={`${song.title} — ${song.artist}`}>
-  <a href="/" class="back">← Songs</a>
+  <a href="/" class="back">← Cançons</a>
   <SongSheet song={song} />
 </Layout>
 
 <style>
   .back {
     display: inline-block;
-    font-family: var(--mono);
-    font-size: .72rem;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--ink-fade);
+    font-family: var(--hand);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--ink-soft);
     margin-bottom: 1rem;
     transition: color var(--t-fast) var(--ease);
   }
-  .back:hover { color: var(--blood); }
+  .back:hover {
+    color: var(--blue);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+  }
 </style>

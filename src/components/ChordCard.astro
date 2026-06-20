@@ -55,7 +55,7 @@ const category = chord.category ?? "major";
   }
   .chordcard:hover {
     background: var(--paper-deep);
-    box-shadow: 3px 3px 0 0 var(--blood);
+    box-shadow: 3px 3px 0 0 var(--blue);
     transform: translate(-1px, -1px);
   }
   .chordcard[hidden] { display: none; }
@@ -68,9 +68,10 @@ const category = chord.category ?? "major";
   }
   .chordcard__name {
     font-family: var(--display);
-    font-weight: 600;
-    font-size: 1.05rem;
+    font-weight: 700;
+    font-size: 1.2rem;
     letter-spacing: -.01em;
+    color: var(--ink);
   }
   .chordcard__tags {
     display: inline-flex;
@@ -79,19 +80,19 @@ const category = chord.category ?? "major";
     gap: .25rem;
   }
   .chordcard__badge {
-    font-family: var(--mono);
-    font-size: .55rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    padding: .1rem .35rem;
-    border: 1px solid currentColor;
+    font-family: var(--hand);
+    font-size: .82rem;
+    font-weight: 500;
+    padding: .05rem .4rem;
+    border: 1.5px solid currentColor;
     border-radius: 2px;
-    line-height: 1.2;
+    line-height: 1.3;
+    background: var(--paper);
   }
-  .chordcard__badge--tier-principiante { color: #5a8c4a; border-color: #5a8c4a; }
-  .chordcard__badge--tier-intermedio  { color: var(--gold); border-color: var(--gold); }
-  .chordcard__badge--tier-avanzado   { color: var(--blue); border-color: var(--blue); }
-  .chordcard__badge--tier-experto    { color: var(--blood); border-color: var(--blood); }
+  .chordcard__badge--tier-principiant { color: var(--green); border-color: var(--green); }
+  .chordcard__badge--tier-intermedi  { color: var(--gold); border-color: var(--gold); }
+  .chordcard__badge--tier-avançat   { color: var(--blue); border-color: var(--blue); }
+  .chordcard__badge--tier-expert    { color: var(--red); border-color: var(--red); }
   .chordcard__badge--cat {
     color: var(--ink-fade);
     border-color: var(--ink-fade);

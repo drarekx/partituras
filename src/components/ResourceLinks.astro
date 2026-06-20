@@ -80,8 +80,8 @@ function labelFor(r: Resource): string {
 ---
 
 {resources && resources.length > 0 && (
-  <section class="resources" aria-label="External resources">
-    <h3 class="resources__h">Resources</h3>
+  <section class="resources" aria-label="Enllaços externs">
+    <h3 class="resources__h">Enllaços</h3>
     <ul class="resources__list">
       {resources.map((r) => (
         <li>
@@ -112,19 +112,20 @@ function labelFor(r: Resource): string {
   .resources {
     margin: 1.25rem 0 0;
     padding: 0.85rem 1rem;
-    border: 1px solid var(--rule);
-    border-left: 4px solid var(--blood);
+    border: 1.5px solid var(--rule);
+    border-left: 4px solid var(--blue);
     background: var(--paper);
+    border-radius: 2px;
   }
   .resources__h {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
+    font-family: var(--hand);
+    font-style: italic;
+    font-size: 0.95rem;
     color: var(--ink-fade);
     margin: 0 0 0.55rem;
     font-weight: 500;
   }
+  .resources__h::before { content: "› "; color: var(--blue); }
   .resources__list {
     display: flex;
     flex-wrap: wrap;
@@ -138,20 +139,19 @@ function labelFor(r: Resource): string {
     align-items: center;
     gap: 0.4rem;
     padding: 0.3rem 0.65rem;
-    border: 1px solid var(--rule);
+    border: 1.5px solid var(--rule);
     border-radius: 999px;
     background: var(--paper);
     color: var(--ink);
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
+    font-family: var(--hand);
+    font-size: 0.95rem;
     line-height: 1;
     text-decoration: none;
     transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
   }
   .resource:hover {
-    border-color: var(--blood);
-    color: var(--blood);
+    border-color: var(--blue);
+    color: var(--blue);
     transform: translateY(-1px);
   }
   .resource__icon {
@@ -160,7 +160,7 @@ function labelFor(r: Resource): string {
     flex: 0 0 auto;
   }
   .resource:hover .resource__icon {
-    color: var(--blood);
+    color: var(--blue);
   }
   .resource--youtube .resource__icon,
   .resource--youtube_music .resource__icon {

@@ -13,9 +13,9 @@ const { chords, sticky = true } = Astro.props;
 
 <section
   class:list={["chordbar", sticky && "chordbar--sticky"]}
-  aria-label="Chord shapes used in this song"
+  aria-label="Acords usats en aquesta cançó"
 >
-  <p class="chordbar__label">Chords</p>
+  <p class="chordbar__label">Acords</p>
   <ol class="chordbar__list" role="list">
     {chords.map((c) => (
       <li class="chordbar__cell">
@@ -30,26 +30,25 @@ const { chords, sticky = true } = Astro.props;
     margin-block: 1.25rem 1.5rem;
     padding: .85rem 1rem .65rem;
     background: var(--paper-deep);
-    border: 1px solid var(--ink);
+    border: 1.5px solid var(--ink);
     border-radius: 2px;
-    box-shadow: 4px 4px 0 0 rgba(24, 20, 16, 0.08);
+    box-shadow: 4px 4px 0 0 rgba(21, 49, 90, 0.08);
   }
   .chordbar--sticky {
     position: sticky;
     top: var(--topbar-h);
     z-index: 5;
-    backdrop-filter: blur(6px);
-    background:
-      linear-gradient(180deg, rgba(230, 222, 199, .96), rgba(230, 222, 199, .92));
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.95);
   }
   .chordbar__label {
-    font-family: var(--mono);
-    font-size: .65rem;
-    letter-spacing: .22em;
-    text-transform: uppercase;
+    font-family: var(--hand);
+    font-size: .95rem;
+    font-style: italic;
     color: var(--ink-fade);
     margin-bottom: .55rem;
   }
+  .chordbar__label::before { content: "› "; color: var(--blue); }
   .chordbar__list {
     display: flex;
     flex-wrap: nowrap;
@@ -65,8 +64,8 @@ const { chords, sticky = true } = Astro.props;
     flex-direction: column;
     align-items: center;
     padding: .25rem .35rem;
-    background: rgba(255, 255, 255, .45);
-    border: 1px solid var(--rule);
+    background: var(--paper);
+    border: 1.5px solid var(--rule);
     border-radius: 2px;
   }
 </style>

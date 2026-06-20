@@ -87,11 +87,11 @@ const tokens = buildInlineTokens(text, chords);
 <style>
   .line {
     position: relative;
-    padding: .6rem 0 .35rem;
+    padding: .55rem 0 .35rem;
     line-height: 1.55;
   }
   .line + .line {
-    border-top: 1px dashed rgba(122, 111, 93, .25);
+    border-top: 1px dashed rgba(43, 74, 124, .18);
   }
 
   /* ---------- Absolute chord chips above the lyrics (desktop) ---------- */
@@ -111,8 +111,8 @@ const tokens = buildInlineTokens(text, chords);
   /* ---------- Lyric text — monospace so absolute positioning works ----- */
 
   .line__text {
-    font-family: var(--mono);
-    font-size: .98rem;
+    font-family: var(--hand);
+    font-size: 1.15rem;
     color: var(--ink);
     white-space: pre;
     letter-spacing: 0;
@@ -133,39 +133,38 @@ const tokens = buildInlineTokens(text, chords);
   /* ---------- Shared chord chip styles --------------------------------- */
 
   :global(.chordchip) {
-    font-family: var(--mono);
-    font-weight: 600;
-    font-size: .82rem;
-    letter-spacing: .02em;
-    color: var(--blood);
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -.01em;
+    color: var(--blue);
     white-space: nowrap;
     line-height: 1.3;
     transition: color var(--t-fast) var(--ease);
   }
   :global(.chordchip:hover) {
-    color: var(--ink);
+    color: var(--red);
   }
 
   /* ---------- Inline chord chip (mobile) ------------------------------- */
 
   .chordchip--inline {
     display: none;
-    padding: .08rem .32rem;
-    margin-right: .12rem;
-    background: rgba(192, 50, 29, .09);
-    border: 1px solid rgba(192, 50, 29, .35);
+    padding: .05rem .35rem;
+    margin-right: .15rem;
+    background: rgba(37, 99, 235, 0.08);
+    border: 1.5px solid rgba(37, 99, 235, 0.4);
     border-radius: 2px;
-    font-size: .75rem;
+    font-size: .9rem;
   }
 
   /* ---------- Repeat marker ------------------------------------------- */
 
   .line__repeat {
-    font-family: var(--mono);
-    font-size: .68rem;
-    letter-spacing: .16em;
+    font-family: var(--hand);
+    font-size: .95rem;
+    font-style: italic;
     color: var(--ink-fade);
-    text-transform: uppercase;
     margin-left: auto;
   }
 
@@ -175,9 +174,9 @@ const tokens = buildInlineTokens(text, chords);
     position: absolute;
     right: 0;
     top: .15rem;
-    font-family: var(--mono);
-    font-size: .75rem;
-    color: var(--blood);
+    font-family: var(--hand);
+    font-size: .85rem;
+    color: var(--red);
     font-weight: 700;
   }
 
@@ -192,7 +191,7 @@ const tokens = buildInlineTokens(text, chords);
     .chordchip--inline { display: inline-block; }
     .line__text {
       white-space: normal;
-      font-size: 1.02rem;
+      font-size: 1.15rem;
       line-height: 1.7;
     }
     .line { padding: .35rem 0 .25rem; }

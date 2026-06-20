@@ -139,7 +139,7 @@ const stringLabel = (f: number) => (f === -1 ? "x" : f === 0 ? "○" : "");
         const showFinger = finger !== undefined && finger !== null && finger > 0;
         return (
           <Fragment>
-            <circle cx={cx} cy={cy} r={6.4} fill="var(--blood)" />
+            <circle cx={cx} cy={cy} r={6.4} fill="var(--blue)" />
             {showFinger && (
               <text
                 x={cx}
@@ -174,7 +174,7 @@ const stringLabel = (f: number) => (f === -1 ? "x" : f === 0 ? "○" : "");
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    gap: .15rem;
+    gap: .2rem;
     margin: 0;
   }
   .chord__name {
@@ -185,39 +185,41 @@ const stringLabel = (f: number) => (f === -1 ? "x" : f === 0 ? "○" : "");
   }
   .chord__name-text {
     font-family: var(--display);
-    font-weight: 600;
-    font-size: 1.05rem;
+    font-weight: 700;
+    font-size: 1.2rem;
     color: var(--ink);
     letter-spacing: -.01em;
   }
   .chord__variant {
-    font-family: var(--mono);
-    font-size: .55rem;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--blood);
+    font-family: var(--hand);
+    font-size: .7rem;
+    letter-spacing: .08em;
+    color: var(--ink-fade);
+    font-weight: 400;
+    font-style: italic;
   }
   .chord__svg {
     height: var(--chord-h);
     width: auto;
   }
   .chord__stringlabel {
-    font-family: var(--mono);
-    font-size: 11px;
+    font-family: var(--hand);
+    font-size: 12px;
     fill: var(--ink);
   }
   .chord__stringlabel.is-open { fill: var(--paper); }
   .chord__stringlabel.is-muted { fill: var(--ink-soft); }
   .chord__finger {
-    font-family: var(--mono);
-    font-size: 9px;
+    font-family: var(--hand);
+    font-size: 10px;
     fill: var(--paper);
     font-weight: 700;
   }
   .chord__baseref {
-    font-family: var(--mono);
-    font-size: 9px;
+    font-family: var(--hand);
+    font-size: 10px;
     fill: var(--ink-fade);
     letter-spacing: .04em;
+    font-style: italic;
   }
 </style>

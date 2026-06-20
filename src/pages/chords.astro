@@ -24,13 +24,13 @@ const categories = Array.from(
 ) as Category[];
 ---
 
-<Layout title="Biblioteca de Acordes" description="Visualizador de acordes de guitarra con notas, digitación y tier por dificultad.">
+<Layout title="Biblioteca d'Acords" description="Biblioteca d'acords de guitarra. Visualitzador amb cerca, filtrat per nivell i categoria.">
   <section class="hero">
     <div class="hero__title-block">
-      <h1 class="hero__title">Biblioteca de Acordes</h1>
+      <h1 class="hero__title">Biblioteca d'Acords</h1>
       <p class="hero__lede">
         {total} acords organitzats per dificultat. Cerca pel nom o
-        filtra per tier i categoria.
+        filtra per nivell i categoria.
       </p>
     </div>
 
@@ -56,7 +56,7 @@ const categories = Array.from(
 
       <div class="filters" data-filters>
         <span class="filters__group">
-          <span class="filters__caption">Dificultat</span>
+          <span class="filters__caption">Nivell</span>
           {TIER_ORDER.map((t) => (
             <button
               type="button"
@@ -230,60 +230,61 @@ const categories = Array.from(
   .hero__title {
     font-family: var(--display);
     font-weight: 700;
-    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-    font-size: clamp(2.4rem, 6.5vw, 4.5rem);
-    line-height: .9;
-    letter-spacing: -.035em;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    line-height: .88;
+    letter-spacing: -.02em;
     margin: 0;
     position: relative;
+    color: var(--ink);
   }
   .hero__title::after {
     content: "";
     display: block;
-    width: 3rem;
-    height: 5px;
-    background: var(--blood);
-    margin-top: .35rem;
+    width: 3.5rem;
+    height: 6px;
+    background: var(--blue);
+    margin-top: .4rem;
+    border-radius: 1px;
   }
   .hero__lede {
     margin: 0;
-    font-family: var(--sans);
-    font-size: 1rem;
+    font-family: var(--hand);
+    font-size: 1.15rem;
+    font-style: italic;
     color: var(--ink-soft);
     max-width: 36rem;
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
   .search { width: 100%; }
   .search__label {
     display: block;
-    font-family: var(--mono);
-    font-size: .65rem;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--ink-fade);
-    margin-bottom: .4rem;
+    font-family: var(--hand);
+    font-size: .9rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-bottom: .35rem;
   }
   .search__field {
     display: flex;
     align-items: center;
     gap: .55rem;
-    padding: .65rem .9rem;
+    padding: .55rem .85rem;
     background: var(--paper);
     border: 1.5px solid var(--ink);
     border-radius: 2px;
     transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
   }
   .search__field:focus-within {
-    border-color: var(--blood);
-    box-shadow: 4px 4px 0 0 var(--blood);
+    border-color: var(--blue);
+    box-shadow: 4px 4px 0 0 var(--blue);
   }
   .search__icon { color: var(--ink-soft); flex: 0 0 auto; }
   .search__input {
     flex: 1;
     font: inherit;
-    font-family: var(--mono);
-    font-size: 1rem;
+    font-family: var(--hand);
+    font-size: 1.1rem;
     color: var(--ink);
     background: transparent;
     border: 0;
@@ -291,26 +292,26 @@ const categories = Array.from(
     padding: 0;
     min-width: 0;
   }
-  .search__input::placeholder { color: var(--ink-fade); }
+  .search__input::placeholder { color: var(--ink-fade); font-style: italic; }
   .search__clear {
-    font-family: var(--mono);
-    font-size: 1.1rem;
-    color: var(--ink-fade);
+    font-family: var(--hand);
+    font-size: 1.2rem;
+    color: var(--ink-soft);
     line-height: 1;
-    padding: .25rem .45rem;
+    padding: .2rem .45rem;
     border: 1px solid var(--rule);
     border-radius: 2px;
     background: transparent;
     cursor: pointer;
     transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
   }
-  .search__clear:hover { color: var(--blood); border-color: var(--blood); }
+  .search__clear:hover { color: var(--red); border-color: var(--red); }
 
   .filters {
     display: flex;
     flex-wrap: wrap;
-    gap: .85rem 1.1rem;
-    margin-top: .9rem;
+    gap: .75rem 1rem;
+    margin-top: 1rem;
   }
   .filters__group {
     display: inline-flex;
@@ -319,21 +320,19 @@ const categories = Array.from(
     gap: .35rem;
   }
   .filters__caption {
-    font-family: var(--mono);
-    font-size: .62rem;
-    letter-spacing: .15em;
-    text-transform: uppercase;
+    font-family: var(--hand);
+    font-size: .85rem;
+    font-style: italic;
     color: var(--ink-fade);
     margin-right: .15rem;
   }
   .filter-chip {
-    font-family: var(--mono);
-    font-size: .68rem;
-    letter-spacing: .04em;
+    font-family: var(--hand);
+    font-size: .95rem;
     color: var(--ink-soft);
-    background: transparent;
-    border: 1px solid var(--rule);
-    padding: .2rem .55rem;
+    background: var(--paper);
+    border: 1.5px solid var(--rule);
+    padding: .15rem .6rem;
     border-radius: 999px;
     cursor: pointer;
     transition:
@@ -347,17 +346,16 @@ const categories = Array.from(
     background: var(--ink);
     border-color: var(--ink);
   }
-  .filter-chip--tier-principiante.is-active { background: #5a8c4a; border-color: #5a8c4a; }
-  .filter-chip--tier-intermedio.is-active  { background: var(--gold); border-color: var(--gold); }
-  .filter-chip--tier-avanzado.is-active   { background: var(--blue); border-color: var(--blue); }
-  .filter-chip--tier-experto.is-active    { background: var(--blood); border-color: var(--blood); }
+  .filter-chip--tier-principiant.is-active  { background: var(--green); border-color: var(--green); }
+  .filter-chip--tier-intermedi.is-active   { background: var(--gold); border-color: var(--gold); }
+  .filter-chip--tier-avançat.is-active     { background: var(--blue); border-color: var(--blue); }
+  .filter-chip--tier-expert.is-active      { background: var(--red); border-color: var(--red); }
 
   .results { margin-top: 1rem; }
   .results__count {
-    font-family: var(--mono);
-    font-size: .72rem;
-    letter-spacing: .18em;
-    text-transform: uppercase;
+    font-family: var(--hand);
+    font-size: .95rem;
+    font-style: italic;
     color: var(--ink-fade);
     margin: 0 0 1.5rem;
   }
@@ -365,12 +363,13 @@ const categories = Array.from(
     margin-top: 2rem;
     padding: 1.5rem;
     text-align: center;
-    font-family: var(--sans);
+    font-family: var(--hand);
+    font-style: italic;
     color: var(--ink-soft);
     background: var(--paper-deep);
-    border: 1px dashed var(--ink-fade);
+    border: 1.5px dashed var(--ink-fade);
   }
-  .results__empty strong { color: var(--blood); font-family: var(--mono); }
+  .results__empty strong { color: var(--blue); }
 
   .chordlib__section {
     margin-bottom: 2.5rem;
@@ -381,31 +380,32 @@ const categories = Array.from(
     align-items: baseline;
     flex-wrap: wrap;
     gap: .35rem 1rem;
-    border-bottom: 1.5px solid var(--ink);
-    padding-bottom: .45rem;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: .5rem;
     margin-bottom: 1rem;
   }
   .chordlib__title {
     font-family: var(--display);
     font-weight: 700;
-    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
     margin: 0;
     letter-spacing: -.015em;
   }
   .chordlib__desc {
     margin: 0;
-    font-family: var(--sans);
-    font-size: .9rem;
+    font-family: var(--hand);
+    font-style: italic;
+    font-size: 1.05rem;
     color: var(--ink-soft);
     flex: 1 1 auto;
   }
   .chordlib__count {
-    font-family: var(--mono);
-    font-size: .68rem;
-    letter-spacing: .18em;
-    color: var(--blood);
-    border: 1px solid var(--blood);
-    padding: .1rem .45rem;
+    font-family: var(--hand);
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--blue);
+    border: 1.5px solid var(--blue);
+    padding: .05rem .55rem;
     border-radius: 2px;
   }
   .chordlib__grid {
@@ -425,14 +425,12 @@ const categories = Array.from(
     display: inline-flex;
     align-items: center;
     gap: .4rem;
-    font-family: var(--mono);
-    font-size: .72rem;
-    letter-spacing: .14em;
-    text-transform: uppercase;
+    font-family: var(--hand);
+    font-size: 1.05rem;
     color: var(--ink-soft);
-    background: transparent;
-    border: 1px solid var(--ink);
-    padding: .45rem .85rem;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    padding: .35rem .85rem;
     border-radius: 2px;
     cursor: pointer;
     transition:
@@ -466,10 +464,15 @@ const categories = Array.from(
   /* ──────────── Print mode ──────────── */
   @media print {
     :global(.topbar),
+    :global(body::before),
+    :global(body::after),
     .search,
     .filters,
     .toolbar {
       display: none !important;
+    }
+    :global(body) {
+      background: #fff !important;
     }
     .hero {
       padding-block: 0 1rem;
@@ -504,9 +507,6 @@ const categories = Array.from(
       color: #000 !important;
       fill: #000 !important;
       stroke: #000 !important;
-    }
-    :global(body) {
-      background: #fff !important;
     }
     .results__count { color: #555 !important; }
     .chordlib__count { color: #000 !important; border-color: #000 !important; }

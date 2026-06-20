@@ -38,17 +38,17 @@ export const TIER_ORDER: Tier[] = [
 ];
 
 export const TIER_LABEL: Record<Tier, string> = {
-  principiante: "Principiante",
-  intermedio: "Intermedio",
-  avanzado: "Avanzado",
-  experto: "Experto",
+  principiante: "Principiant",
+  intermedio: "Intermedi",
+  avanzado: "Avançat",
+  experto: "Expert",
 };
 
 export const TIER_DESCRIPTION: Record<Tier, string> = {
   principiante:
     "Acords oberts sense barra. La base de qualsevol cançoner.",
   intermedio:
-    "Septenes, sus, add i power chords oberts. Amplien el vocabulari.",
+    "Setenes, sus, add i power chords oberts. Amplien el vocabulari.",
   avanzado:
     "Acords amb barra i extensions bàsiques (maj7, m7).",
   experto:
