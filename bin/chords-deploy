@@ -1,77 +1,111 @@
 #!/usr/bin/env bash
 # chords-deploy — descarrega i desplega l'última release del songbook.
 #
+# Instal·lació one-liner:
+#   curl -fsSL https://raw.githubusercontent.com/drarekx/partituras/main/bin/chords-deploy \
+#     -o /usr/local/bin/chords-deploy && chmod +x /usr/local/bin/chords-deploy
+# (o ~/.local/bin/chords-deploy si no tens permisos a /usr/local)
+#
 # Ús:
-#   chords-deploy                          # última release → ~/Sites/chords
+#   chords-deploy                          # última → /var/www/partituras
 #   chords-deploy v0.1.0                   # tag concret
-#   chords-deploy --dest /var/www/chords   # destí custom
-#   chords-deploy --repo owner/other       # altre repo
-#   chords-deploy --no-zip                 # no deixa el .zip al destí
-#   chords-deploy --install                # symlink a ~/.local/bin/chords-deploy
+#   chords-deploy --dest /var/www/partituras
+#   chords-deploy --list                   # llistar releases
+#   chords-deploy --list --nightlies       # només nightly/*
+#   chords-deploy --install                # mostra la instrucció d'instal·lació
 #   chords-deploy --help
 
 set -euo pipefail
 
-# Resol symlinks per trobar el repo root real (no el del symlink a ~/.local/bin)
-SOURCE="$0"
-while [ -L "$SOURCE" ]; do
-  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
-  SOURCE="$(readlink "$SOURCE")"
-  [[ "$SOURCE" != /* ]] && SOURCE="$DIR/$SOURCE"
-done
-REPO_ROOT="$(cd -P "$(dirname "$SOURCE")/.." && pwd)"
-SCRIPT="$REPO_ROOT/scripts/download-release.py"
-
 VERSION="latest"
-DEST="${CHORDS_DEPLOY_DEST:-$HOME/Sites/chords}"
-REPO="${CHORDS_REPO:-}"
+DEST="${CHORDS_DEPLOY_DEST:-/var/www/partituras}"
+REPO="${CHORDS_REPO:-drarekx/partituras}"
+KEEP_ZIP=0
 INSTALL=0
-NO_ZIP=0
+LIST=0
+NIGHTLIES=0
+LIMIT=20
 
 usage() {
-  sed -n '2,12p' "$0" | sed 's/^# \{0,1\}//'
+  sed -n '2,15p' "$0" | sed 's/^# \{0,1\}//'
 }
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --install)  INSTALL=1; shift ;;
-    --dest)     DEST="${2:-}"; shift 2 ;;
-    --dest=*)   DEST="${1#*=}"; shift ;;
-    --repo)     REPO="${2:-}"; shift 2 ;;
-    --repo=*)   REPO="${1#*=}"; shift ;;
-    --no-zip)   NO_ZIP=1; shift ;;
-    --keep-zip) NO_ZIP=0; shift ;;
-    -h|--help)  usage; exit 0 ;;
-    --list|--nightlies|--limit)
-                # Pass-through to download-release.py
-                python3 "$SCRIPT" "$@"
-                exit $? ;;
-    --limit=*)  python3 "$SCRIPT" --limit "${1#*=}"; exit $? ;;
-    --)         shift; break ;;
-    -*)         echo "✗ Opció desconeguda: $1" >&2; usage >&2; exit 1 ;;
-    *)          VERSION="$1"; shift ;;
+    --install)   INSTALL=1; shift ;;
+    --dest)      DEST="${2:-}"; shift 2 ;;
+    --dest=*)    DEST="${1#*=}"; shift ;;
+    --repo)      REPO="${2:-}"; shift 2 ;;
+    --repo=*)    REPO="${1#*=}"; shift ;;
+    --no-zip)    KEEP_ZIP=0; shift ;;
+    --keep-zip)  KEEP_ZIP=1; shift ;;
+    --list)      LIST=1; shift ;;
+    --nightlies) NIGHTLIES=1; shift ;;
+    --limit)     LIMIT="${2:-20}"; shift 2 ;;
+    --limit=*)   LIMIT="${1#*=}"; shift ;;
+    -h|--help)   usage; exit 0 ;;
+    --)          shift; break ;;
+    -*)          echo "✗ Opció desconeguda: $1" >&2; usage >&2; exit 1 ;;
+    *)           VERSION="$1"; shift ;;
   esac
 done
 
-# ───── --install: symlink a ~/.local/bin ─────
+# ───── --install: imprimeix com instal·lar ─────
 if [[ $INSTALL -eq 1 ]]; then
-  BIN_DIR="${CHORDS_BIN_DIR:-$HOME/.local/bin}"
-  mkdir -p "$BIN_DIR"
-  ln -sf "$REPO_ROOT/bin/chords-deploy" "$BIN_DIR/chords-deploy"
-  echo "✓ Symlink creat → $BIN_DIR/chords-deploy"
+  URL="https://raw.githubusercontent.com/${REPO}/main/bin/chords-deploy"
+  echo "Per instal·lar 'chords-deploy' al sistema:"
+  echo ""
+  echo "  curl -fsSL \"$URL\" -o /usr/local/bin/chords-deploy && chmod +x /usr/local/bin/chords-deploy"
+  echo ""
+  echo "Si no tens permisos a /usr/local, instal·la a ~/.local/bin:"
+  echo ""
+  echo "  mkdir -p ~/.local/bin"
+  echo "  curl -fsSL \"$URL\" -o ~/.local/bin/chords-deploy && chmod +x ~/.local/bin/chords-deploy"
+  echo "  export PATH=~/.local/bin:\$PATH"
+  echo ""
   if command -v chords-deploy >/dev/null 2>&1; then
-    echo "  ja accessible via PATH: $(command -v chords-deploy)"
+    echo "Actualment: $(command -v chords-deploy)"
   else
-    echo "  ⚠ afegeix $BIN_DIR al PATH si encara no hi és:"
-    echo "      export PATH=\"$BIN_DIR:\$PATH\""
+    echo "Actualment: no trobat al PATH"
   fi
   exit 0
 fi
 
-# ───── Sanity checks ─────
-if [[ ! -f "$SCRIPT" ]]; then
-  echo "✗ No trobo $SCRIPT" >&2; exit 1
+# ───── --list: passthrough a la part Python ─────
+if [[ $LIST -eq 1 ]]; then
+  exec python3 -c '
+import json, sys, urllib.error, urllib.request
+repo, nightlies, limit = sys.argv[1], sys.argv[2] == "1", int(sys.argv[3])
+url = f"https://api.github.com/repos/{repo}/releases?per_page={min(limit, 100)}"
+req = urllib.request.Request(url, headers={
+    "Accept": "application/vnd.github+json",
+    "User-Agent": "chords-deploy/0.2",
+    "X-GitHub-Api-Version": "2022-11-28",
+})
+try:
+    data = json.loads(urllib.request.urlopen(req, timeout=30).read())
+except urllib.error.HTTPError as e:
+    print(f"! Error {e.code} consultant {repo}: {e.reason}", file=sys.stderr)
+    sys.exit(2)
+print("%-40s %10s  %s" % ("TAG", "MIDA", "PUBLICAT"))
+print("-" * 72)
+shown = 0
+for r in data:
+    if nightlies and not r["tag_name"].startswith("nightly/"):
+        continue
+    asset = next((a for a in r.get("assets", []) if a["name"] == "chords-dist.zip"), None)
+    size_kb = asset["size"] / 1024 if asset else None
+    size = "%4.0f KiB" % size_kb if size_kb is not None else "—"
+    pub = r["published_at"][:10]
+    tag = r["tag_name"]
+    print("%-40s %10s  %s" % (tag, size, pub))
+    shown += 1
+if shown == 0:
+    print("(cap release per mostrar a %s)" % repo)
+' "$REPO" "$NIGHTLIES" "$LIMIT"
 fi
+
+# ───── Sanity checks ─────
 if ! command -v python3 >/dev/null 2>&1; then
   echo "✗ cal python3 al PATH" >&2; exit 1
 fi
@@ -88,13 +122,85 @@ mkdir -p "$DEST"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
-# ───── Download a TMP, després movem a DEST net ─────
-ARGS=(--tag "$VERSION" --dest "$TMP")
-[[ -n "$REPO" ]] && ARGS+=(--repo "$REPO")
-[[ $NO_ZIP -eq 1 ]] && ARGS+=(--no-zip)
-python3 "$SCRIPT" "${ARGS[@]}"
+# ───── Download + extract via Python embegut ─────
+python3 - "$REPO" "$VERSION" "$TMP" "$KEEP_ZIP" <<'PYEOF'
+import json, os, sys, time, urllib.error, urllib.request, zipfile
 
-# Esborrem el contingut del dest però conservem el directori
+ASSET_NAME = "chords-dist.zip"
+repo, tag, dest, keep_zip = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4] == "1"
+
+def http_json(url):
+    req = urllib.request.Request(url, headers={
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "chords-deploy/0.2",
+        "X-GitHub-Api-Version": "2022-11-28",
+    })
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.loads(r.read())
+
+def http_download(url, dest):
+    with urllib.request.urlopen(url, timeout=120) as r:
+        total = int(r.headers.get("Content-Length") or 0)
+        chunk = 64 * 1024
+        written = 0
+        with open(dest, "wb") as f:
+            while True:
+                buf = r.read(chunk)
+                if not buf: break
+                f.write(buf); written += len(buf)
+                if total:
+                    pct = written * 100 / total
+                    sys.stdout.write(f"\r  ↓ {ASSET_NAME} {written//1024} / {total//1024} KiB ({pct:.0f}%)")
+                    sys.stdout.flush()
+        if total: sys.stdout.write("\n")
+
+api = "https://api.github.com"
+if tag == "latest":
+    data = http_json(f"{api}/repos/{repo}/releases/latest")
+else:
+    data = http_json(f"{api}/repos/{repo}/releases/tags/{tag}")
+
+asset = next((a for a in data.get("assets", []) if a["name"] == ASSET_NAME), None)
+if not asset:
+    print(f"! Release {data['tag_name']} no conté l'asset {ASSET_NAME}", file=sys.stderr)
+    sys.exit(3)
+
+print(f"Repo      : {repo}")
+print(f"Release   : {data['tag_name']} — {data['name']}")
+print(f"Publicat  : {data['published_at']}")
+print(f"Mida zip  : {asset['size']/1024:.1f} KiB")
+print(f"Destí     : {dest}")
+
+zip_path = os.path.join(dest, ASSET_NAME)
+t0 = time.time()
+print(f"\n→ Descarregant {ASSET_NAME}…")
+http_download(asset["browser_download_url"], zip_path)
+print(f"  ✓ {zip_path} ({os.path.getsize(zip_path)/1024:.1f} KiB en {time.time()-t0:.1f}s)")
+
+print("→ Extraient…")
+with zipfile.ZipFile(zip_path) as zf:
+    members = zf.namelist()
+    zf.extractall(dest)
+print(f"  ✓ {len(members)} fitxers → {dest}/")
+
+if not keep_zip:
+    os.unlink(zip_path)
+    print(f"  ✓ zip esborrat (--no-zip)")
+
+stamp = os.path.join(dest, ".release.json")
+with open(stamp, "w") as f:
+    json.dump({
+        "repo": repo,
+        "tag": data["tag_name"],
+        "name": data["name"],
+        "published_at": data["published_at"],
+        "asset_size": asset["size"],
+        "downloaded_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    }, f, indent=2, ensure_ascii=False)
+print(f"  ✓ marca → {stamp}")
+PYEOF
+
+# ───── Mou TMP al DEST net ─────
 find "$DEST" -mindepth 1 -delete 2>/dev/null || true
 shopt -s dotglob nullglob
 mv "$TMP"/* "$DEST"/
