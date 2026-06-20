@@ -602,6 +602,24 @@ export const CHORD_LIBRARY: Record<string, ChordShape> = {
     category: "slash",
     tip: "C amb baix Eb (4a corda).",
   },
+  Fm6: {
+    name: "Fm6",
+    frets: [1, -1, 3, 1, 3, 1],
+    fingers: [1, null, 3, 1, 4, 1],
+    barre: { fret: 1, from: 0, to: 5, finger: 1 },
+    variant: "barre",
+    tier: "experto",
+    category: "altered",
+    tip: "Fm amb 6a (D). Alternativa: 1x013x.",
+  },
+  "E7/G#": {
+    name: "E7/G#",
+    frets: [4, 2, 0, 1, 3, 0],
+    fingers: [4, 2, 0, 1, 3, 0],
+    tier: "experto",
+    category: "slash",
+    tip: "E7 amb baix G#. So icònic d'Oasis.",
+  },
 };
 
 /** Resolve a chord name to its definition, returning undefined if unknown. */

@@ -1,0 +1,1011 @@
+{
+  "id": "dont-look-back-in-anger",
+  "title": "Don't Look Back In Anger",
+  "artist": "Oasis",
+  "year": 1995,
+  "album": "(What's the Story) Morning Glory?",
+  "language": "en",
+  "genre": [
+    "rock",
+    "britpop",
+    "anthem"
+  ],
+  "decade": 1990,
+  "difficulty": "beginner",
+  "tags": [
+    "90s",
+    "britpop",
+    "anthem",
+    "4/4",
+    "solo",
+    "Fm6",
+    "E7/G#"
+  ],
+  "type": "original",
+  "key": "C",
+  "capo": 0,
+  "tuning": "Standard (E A D G B E) — 455 Hz original pitch",
+  "time_signature": "4/4",
+  "chords_used": [
+    "Am",
+    "C",
+    "E7",
+    "E7/G#",
+    "F",
+    "Fm6",
+    "G"
+  ],
+  "source": {
+    "label": "Ultimate-Guitar",
+    "url": "https://tabs.ultimate-guitar.com/tab/oasis/dont-look-back-in-anger-chords-6097",
+    "contributor": "NSpen1",
+    "date": "2001-10-31"
+  },
+  "resources": [
+    {
+      "type": "youtube",
+      "label": "Official Video",
+      "url": "https://www.youtube.com/results?search_query=Oasis+Don't+Look+Back+in+Anger"
+    },
+    {
+      "type": "wikipedia",
+      "label": "Song",
+      "url": "https://en.wikipedia.org/wiki/Don%27t_Look_Back_in_Anger"
+    },
+    {
+      "type": "wikipedia",
+      "label": "Album",
+      "url": "https://en.wikipedia.org/wiki/(What%27s_the_Story)_Morning_Glory%3F"
+    },
+    {
+      "type": "spotify",
+      "label": "Listen",
+      "url": "https://open.spotify.com/search/Don%27t%20Look%20Back%20in%20Anger%20Oasis"
+    }
+  ],
+  "notes": [
+    "Afina la guitarra a 455 Hz per tocar amb el to original.",
+    "Fm6 (1x3131) i E7/G# (4x243x) són acords clau al pre-chorus. Sense ells no sona igual.",
+    "Rasgueig: ↓ ↓ ↑ ↑↓↑. Practica'l amb el patró C G Am E7 F G C.",
+    "El solo és una progressió d'acords (F Fm6 C ×3, G | E7/G#, Am G | F | G)."
+  ],
+  "personal": {
+    "added_at": "2024-06-20",
+    "status": "learning"
+  },
+  "sections": [
+    {
+      "kind": "intro",
+      "label": "Intro",
+      "lines": [
+        {
+          "text": "C · F · C · F",
+          "chords": [
+            {
+              "at": 2,
+              "name": "C"
+            },
+            {
+              "at": 8,
+              "name": "F"
+            },
+            {
+              "at": 14,
+              "name": "C"
+            },
+            {
+              "at": 20,
+              "name": "F"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "verse",
+      "label": "Estrofa 1",
+      "lines": [
+        {
+          "text": "Slip inside the eye of your mind",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 15,
+              "name": "G"
+            },
+            {
+              "at": 27,
+              "name": "Am"
+            }
+          ]
+        },
+        {
+          "text": "Don't you know you might find",
+          "chords": [
+            {
+              "at": 0,
+              "name": "E7"
+            },
+            {
+              "at": 13,
+              "name": "F"
+            },
+            {
+              "at": 17,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "A better place to play",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 5,
+              "name": "Am"
+            },
+            {
+              "at": 6,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "You said that you'd never been",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 13,
+              "name": "G"
+            },
+            {
+              "at": 24,
+              "name": "Am"
+            }
+          ]
+        },
+        {
+          "text": "But all the things that you've seen",
+          "chords": [
+            {
+              "at": 0,
+              "name": "E7"
+            },
+            {
+              "at": 17,
+              "name": "F"
+            },
+            {
+              "at": 21,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "Slowly fade away",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 4,
+              "name": "Am"
+            },
+            {
+              "at": 5,
+              "name": "G"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "pre-chorus",
+      "label": "Pre-tornada 1",
+      "lines": [
+        {
+          "text": " So I start a revolution from my bed",
+          "chords": [
+            {
+              "at": 0,
+              "name": "F"
+            },
+            {
+              "at": 17,
+              "name": "Fm6"
+            },
+            {
+              "at": 29,
+              "name": "C"
+            }
+          ]
+        },
+        {
+          "text": "'Cos you said the brains I had went to my head",
+          "chords": [
+            {
+              "at": 0,
+              "name": "F"
+            },
+            {
+              "at": 17,
+              "name": "Fm6"
+            },
+            {
+              "at": 29,
+              "name": "C"
+            }
+          ]
+        },
+        {
+          "text": "Step outside, summertime's in bloom",
+          "chords": [
+            {
+              "at": 0,
+              "name": "F"
+            },
+            {
+              "at": 13,
+              "name": "Fm6"
+            },
+            {
+              "at": 26,
+              "name": "C"
+            }
+          ]
+        },
+        {
+          "text": "Stand up beside the fireplace",
+          "chords": [
+            {
+              "at": 0,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "Take that look from off your face",
+          "chords": [
+            {
+              "at": 0,
+              "name": "E7/G#"
+            }
+          ]
+        },
+        {
+          "text": "You ain't ever gonna burn my heart out",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Am"
+            },
+            {
+              "at": 13,
+              "name": "G"
+            },
+            {
+              "at": 26,
+              "name": "F"
+            },
+            {
+              "at": 33,
+              "name": "G"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chorus",
+      "label": "Tornada 1",
+      "lines": [
+        {
+          "text": "And so Sally can wait, she knows it's too late",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 2,
+              "name": "G"
+            },
+            {
+              "at": 11,
+              "name": "Am"
+            },
+            {
+              "at": 19,
+              "name": "E7"
+            },
+            {
+              "at": 32,
+              "name": "F"
+            }
+          ]
+        },
+        {
+          "text": "as we're walking on by",
+          "chords": [
+            {
+              "at": 0,
+              "name": "G"
+            },
+            {
+              "at": 10,
+              "name": "C"
+            },
+            {
+              "at": 13,
+              "name": "Am"
+            },
+            {
+              "at": 14,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "Her soul slides away,",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 4,
+              "name": "G"
+            },
+            {
+              "at": 11,
+              "name": "Am"
+            },
+            {
+              "at": 14,
+              "name": "E7"
+            }
+          ]
+        },
+        {
+          "text": "but don't look back in anger",
+          "chords": [
+            {
+              "at": 0,
+              "name": "F"
+            },
+            {
+              "at": 13,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "I heard you say",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 3,
+              "name": "G"
+            },
+            {
+              "at": 6,
+              "name": "Am"
+            },
+            {
+              "at": 9,
+              "name": "E7"
+            },
+            {
+              "at": 12,
+              "name": "F"
+            },
+            {
+              "at": 15,
+              "name": "G"
+            },
+            {
+              "at": 18,
+              "name": "C"
+            },
+            {
+              "at": 21,
+              "name": "Am"
+            },
+            {
+              "at": 22,
+              "name": "G"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "verse",
+      "label": "Estrofa 2",
+      "lines": [
+        {
+          "text": "Take me to the place where you go",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 14,
+              "name": "G"
+            },
+            {
+              "at": 29,
+              "name": "Am"
+            }
+          ]
+        },
+        {
+          "text": "Where nobody knows, if it's night or day",
+          "chords": [
+            {
+              "at": 0,
+              "name": "E7"
+            },
+            {
+              "at": 5,
+              "name": "F"
+            },
+            {
+              "at": 11,
+              "name": "G"
+            },
+            {
+              "at": 27,
+              "name": "C"
+            },
+            {
+              "at": 31,
+              "name": "Am"
+            },
+            {
+              "at": 32,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "Please don't put your life in the hands",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 21,
+              "name": "G"
+            },
+            {
+              "at": 32,
+              "name": "Am"
+            }
+          ]
+        },
+        {
+          "text": "of a rock and roll band, who'll throw it all away",
+          "chords": [
+            {
+              "at": 0,
+              "name": "E7"
+            },
+            {
+              "at": 12,
+              "name": "F"
+            },
+            {
+              "at": 17,
+              "name": "G"
+            },
+            {
+              "at": 37,
+              "name": "C"
+            },
+            {
+              "at": 41,
+              "name": "Am"
+            },
+            {
+              "at": 42,
+              "name": "G"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "pre-chorus",
+      "label": "Pre-tornada 2",
+      "lines": [
+        {
+          "text": " I'm gonna start a revolution from my bed",
+          "chords": [
+            {
+              "at": 0,
+              "name": "F"
+            },
+            {
+              "at": 22,
+              "name": "Fm6"
+            },
+            {
+              "at": 34,
+              "name": "C"
+            }
+          ]
+        },
+        {
+          "text": "'Cos you said the brains I had went to my head",
+          "chords": [
+            {
+              "at": 0,
+              "name": "F"
+            },
+            {
+              "at": 17,
+              "name": "Fm6"
+            },
+            {
+              "at": 29,
+              "name": "C"
+            }
+          ]
+        },
+        {
+          "text": "Step outside, the summertime's in bloom",
+          "chords": [
+            {
+              "at": 0,
+              "name": "F"
+            },
+            {
+              "at": 17,
+              "name": "Fm6"
+            },
+            {
+              "at": 30,
+              "name": "C"
+            }
+          ]
+        },
+        {
+          "text": "Stand up beside the fireplace",
+          "chords": [
+            {
+              "at": 0,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "Take that look from off your face",
+          "chords": [
+            {
+              "at": 0,
+              "name": "E7/G#"
+            }
+          ]
+        },
+        {
+          "text": "'Cos you ain't ever gonna burn my heart out",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Am"
+            },
+            {
+              "at": 13,
+              "name": "G"
+            },
+            {
+              "at": 26,
+              "name": "F"
+            },
+            {
+              "at": 33,
+              "name": "G"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chorus",
+      "label": "Tornada 2",
+      "lines": [
+        {
+          "text": "So Sally can wait, she knows it's too late",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 2,
+              "name": "G"
+            },
+            {
+              "at": 11,
+              "name": "Am"
+            },
+            {
+              "at": 19,
+              "name": "E7"
+            },
+            {
+              "at": 32,
+              "name": "F"
+            }
+          ]
+        },
+        {
+          "text": "as she's walking on by",
+          "chords": [
+            {
+              "at": 0,
+              "name": "G"
+            },
+            {
+              "at": 10,
+              "name": "C"
+            },
+            {
+              "at": 13,
+              "name": "Am"
+            },
+            {
+              "at": 14,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "My soul slides away,",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 4,
+              "name": "G"
+            },
+            {
+              "at": 11,
+              "name": "Am"
+            },
+            {
+              "at": 14,
+              "name": "E7"
+            }
+          ]
+        },
+        {
+          "text": "but don't look back in anger",
+          "chords": [
+            {
+              "at": 0,
+              "name": "F"
+            },
+            {
+              "at": 13,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "I heard you say",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 3,
+              "name": "Am"
+            },
+            {
+              "at": 4,
+              "name": "G"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "solo",
+      "label": "Solo",
+      "lines": [
+        {
+          "text": "F · Fm6 · C",
+          "chords": [
+            {
+              "at": 2,
+              "name": "F"
+            },
+            {
+              "at": 4,
+              "name": "Fm6"
+            },
+            {
+              "at": 7,
+              "name": "C"
+            }
+          ]
+        },
+        {
+          "text": "G · E7/G#",
+          "chords": [
+            {
+              "at": 2,
+              "name": "G"
+            },
+            {
+              "at": 10,
+              "name": "E7/G#"
+            }
+          ]
+        },
+        {
+          "text": "Am · G · F · G · G",
+          "chords": [
+            {
+              "at": 2,
+              "name": "Am"
+            },
+            {
+              "at": 4,
+              "name": "G"
+            },
+            {
+              "at": 8,
+              "name": "F"
+            },
+            {
+              "at": 15,
+              "name": "G"
+            },
+            {
+              "at": 22,
+              "name": "G"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chorus",
+      "label": "Tornada 3",
+      "lines": [
+        {
+          "text": "So Sally can wait, she knows it's too late",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 2,
+              "name": "G"
+            },
+            {
+              "at": 11,
+              "name": "Am"
+            },
+            {
+              "at": 19,
+              "name": "E7"
+            },
+            {
+              "at": 32,
+              "name": "F"
+            }
+          ]
+        },
+        {
+          "text": "as we're walking on by",
+          "chords": [
+            {
+              "at": 0,
+              "name": "G"
+            },
+            {
+              "at": 10,
+              "name": "C"
+            },
+            {
+              "at": 13,
+              "name": "Am"
+            },
+            {
+              "at": 14,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "Her soul slides away,",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 4,
+              "name": "G"
+            },
+            {
+              "at": 11,
+              "name": "Am"
+            },
+            {
+              "at": 14,
+              "name": "E7"
+            }
+          ]
+        },
+        {
+          "text": "but don't look back in anger",
+          "chords": [
+            {
+              "at": 0,
+              "name": "F"
+            },
+            {
+              "at": 13,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "I heard you say",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 4,
+              "name": "Am"
+            },
+            {
+              "at": 5,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "So Sally can wait, she knows it's too late",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 2,
+              "name": "G"
+            },
+            {
+              "at": 11,
+              "name": "Am"
+            },
+            {
+              "at": 19,
+              "name": "E7"
+            },
+            {
+              "at": 32,
+              "name": "F"
+            }
+          ]
+        },
+        {
+          "text": "as she's walking on by",
+          "chords": [
+            {
+              "at": 0,
+              "name": "G"
+            },
+            {
+              "at": 10,
+              "name": "C"
+            },
+            {
+              "at": 13,
+              "name": "Am"
+            },
+            {
+              "at": 14,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "My soul slides away",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 4,
+              "name": "G"
+            },
+            {
+              "at": 11,
+              "name": "Am"
+            }
+          ]
+        },
+        {
+          "text": "But don't look back in anger",
+          "chords": [
+            {
+              "at": 0,
+              "name": "F"
+            }
+          ]
+        },
+        {
+          "text": "Don't look back in anger",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Fm6"
+            }
+          ]
+        },
+        {
+          "text": "I heard you say                     At least not today",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 3,
+              "name": "G"
+            },
+            {
+              "at": 6,
+              "name": "Am"
+            },
+            {
+              "at": 9,
+              "name": "E7"
+            },
+            {
+              "at": 12,
+              "name": "F"
+            },
+            {
+              "at": 15,
+              "name": "Fm6"
+            },
+            {
+              "at": 29,
+              "name": "C"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
