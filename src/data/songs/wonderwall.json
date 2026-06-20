@@ -1,0 +1,989 @@
+{
+  "id": "wonderwall",
+  "title": "Wonderwall",
+  "artist": "Oasis",
+  "year": 1995,
+  "album": "(What's the Story) Morning Glory?",
+  "language": "en",
+  "genre": [
+    "rock",
+    "britpop",
+    "alternative"
+  ],
+  "decade": 1990,
+  "difficulty": "beginner",
+  "tags": [
+    "simplified",
+    "90s",
+    "britpop",
+    "anthem",
+    "4/4",
+    "strumming"
+  ],
+  "type": "original",
+  "key": "Em",
+  "capo": 0,
+  "tuning": "Standard (E A D G B E)",
+  "time_signature": "4/4",
+  "chords_used": [
+    "A7sus4",
+    "C",
+    "D",
+    "Em",
+    "G"
+  ],
+  "source": {
+    "label": "Ultimate-Guitar",
+    "url": "https://tabs.ultimate-guitar.com/tab/oasis/wonderwall-chords-27596",
+    "contributor": "UG community",
+    "date": "2002-04-12"
+  },
+  "resources": [
+    {
+      "type": "youtube",
+      "label": "Official Video",
+      "url": "https://www.youtube.com/results?search_query=Oasis+Wonderwall+official"
+    },
+    {
+      "type": "wikipedia",
+      "label": "Wonderwall",
+      "url": "https://en.wikipedia.org/wiki/Wonderwall_(song)"
+    },
+    {
+      "type": "wikipedia",
+      "label": "Morning Glory",
+      "url": "https://en.wikipedia.org/wiki/(What%27s_the_Story)_Morning_Glory%3F"
+    },
+    {
+      "type": "spotify",
+      "label": "Listen",
+      "url": "https://open.spotify.com/search/Wonderwall%20Oasis"
+    }
+  ],
+  "notes": [
+    "Versió simplificada per a principiants (UG v2).",
+    "L'acord real és A7sus4 (x02033). Si el substitueixes per A major, perds la 4a (D) i no sona igual.",
+    "Rasgueig clàssic: ↓ ↓ ↑ ↑↓↑. Practica'l lent amb el patró de quatre acords."
+  ],
+  "personal": {
+    "added_at": "2024-06-20",
+    "status": "learning"
+  },
+  "sections": [
+    {
+      "kind": "intro",
+      "label": "Intro",
+      "lines": [
+        {
+          "text": "Em · G · D · A7sus4",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 3,
+              "name": "G"
+            },
+            {
+              "at": 6,
+              "name": "D"
+            },
+            {
+              "at": 9,
+              "name": "A7sus4"
+            }
+          ]
+        },
+        {
+          "text": "Em · G · D · A7sus4",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 3,
+              "name": "G"
+            },
+            {
+              "at": 6,
+              "name": "D"
+            },
+            {
+              "at": 9,
+              "name": "A7sus4"
+            }
+          ]
+        },
+        {
+          "text": "Em · G · D · A7sus4",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 3,
+              "name": "G"
+            },
+            {
+              "at": 6,
+              "name": "D"
+            },
+            {
+              "at": 9,
+              "name": "A7sus4"
+            }
+          ]
+        },
+        {
+          "text": "Em · G · D · A7sus4",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 3,
+              "name": "G"
+            },
+            {
+              "at": 6,
+              "name": "D"
+            },
+            {
+              "at": 9,
+              "name": "A7sus4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "verse",
+      "label": "Estrofa 1",
+      "lines": [
+        {
+          "text": "Today is gonna be the day",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 7,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "That they're gonna throw it back to you",
+          "chords": [
+            {
+              "at": 0,
+              "name": "D"
+            },
+            {
+              "at": 18,
+              "name": "A7sus4"
+            }
+          ]
+        },
+        {
+          "text": "By now you should've somehow",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 10,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "Realised what you gotta do",
+          "chords": [
+            {
+              "at": 0,
+              "name": "D"
+            },
+            {
+              "at": 16,
+              "name": "A7sus4"
+            }
+          ]
+        },
+        {
+          "text": "I don't believe that anybody",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 19,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "Feels the way I do about you now",
+          "chords": [
+            {
+              "at": 0,
+              "name": "D"
+            },
+            {
+              "at": 11,
+              "name": "A7sus4"
+            },
+            {
+              "at": 25,
+              "name": "C"
+            },
+            {
+              "at": 26,
+              "name": "D"
+            },
+            {
+              "at": 28,
+              "name": "A7sus4"
+            },
+            {
+              "at": 30,
+              "name": "A7sus4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "verse",
+      "label": "Estrofa 2",
+      "lines": [
+        {
+          "text": "Backbeat, the word is on the street",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 12,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "That the fire in your heart is out",
+          "chords": [
+            {
+              "at": 0,
+              "name": "D"
+            },
+            {
+              "at": 17,
+              "name": "A7sus4"
+            }
+          ]
+        },
+        {
+          "text": "I'm sure you've heard it all before",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 14,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "But you never really had a doubt",
+          "chords": [
+            {
+              "at": 0,
+              "name": "D"
+            },
+            {
+              "at": 13,
+              "name": "A7sus4"
+            }
+          ]
+        },
+        {
+          "text": "I don't believe that anybody feels",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 19,
+              "name": "G"
+            },
+            {
+              "at": 26,
+              "name": "D"
+            }
+          ]
+        },
+        {
+          "text": "The way I do about you now",
+          "chords": [
+            {
+              "at": 0,
+              "name": "A7sus4"
+            },
+            {
+              "at": 12,
+              "name": "Em"
+            },
+            {
+              "at": 14,
+              "name": "G"
+            },
+            {
+              "at": 16,
+              "name": "D"
+            },
+            {
+              "at": 18,
+              "name": "A7sus4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "pre-chorus",
+      "label": "Pre-tornada 1",
+      "lines": [
+        {
+          "text": "And all the roads we have to walk are winding",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 16,
+              "name": "D"
+            },
+            {
+              "at": 28,
+              "name": "Em"
+            }
+          ]
+        },
+        {
+          "text": "And all the lights that lead us there are blinding",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 16,
+              "name": "D"
+            },
+            {
+              "at": 32,
+              "name": "Em"
+            }
+          ]
+        },
+        {
+          "text": "There are many things that I would",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 14,
+              "name": "D"
+            }
+          ]
+        },
+        {
+          "text": "Like to say to you",
+          "chords": [
+            {
+              "at": 0,
+              "name": "G"
+            },
+            {
+              "at": 7,
+              "name": "D"
+            },
+            {
+              "at": 13,
+              "name": "Em"
+            }
+          ]
+        },
+        {
+          "text": "But I don't know how",
+          "chords": [
+            {
+              "at": 0,
+              "name": "D"
+            },
+            {
+              "at": 6,
+              "name": "A7sus4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chorus",
+      "label": "Tornada 1",
+      "lines": [
+        {
+          "text": "Because maybe",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 4,
+              "name": "Em"
+            },
+            {
+              "at": 6,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "You're gonna be the one that saves me",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 19,
+              "name": "C"
+            },
+            {
+              "at": 27,
+              "name": "Em"
+            },
+            {
+              "at": 29,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "And after all",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 3,
+              "name": "C"
+            },
+            {
+              "at": 5,
+              "name": "Em"
+            },
+            {
+              "at": 7,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "You're my wonderwall",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 3,
+              "name": "C"
+            },
+            {
+              "at": 6,
+              "name": "Em"
+            },
+            {
+              "at": 8,
+              "name": "G"
+            },
+            {
+              "at": 10,
+              "name": "Em"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "verse",
+      "label": "Estrofa 3",
+      "lines": [
+        {
+          "text": "Today was gonna be the day",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 8,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "But they'll never throw it back to you",
+          "chords": [
+            {
+              "at": 0,
+              "name": "D"
+            },
+            {
+              "at": 18,
+              "name": "A7sus4"
+            }
+          ]
+        },
+        {
+          "text": "By now you should've somehow",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 9,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "Realised what you're not to do",
+          "chords": [
+            {
+              "at": 0,
+              "name": "D"
+            },
+            {
+              "at": 20,
+              "name": "A7sus4"
+            }
+          ]
+        },
+        {
+          "text": "I don't believe that anybody",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 19,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "Feels the way I do",
+          "chords": [
+            {
+              "at": 0,
+              "name": "D"
+            },
+            {
+              "at": 12,
+              "name": "A7sus4"
+            }
+          ]
+        },
+        {
+          "text": "About you now",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 2,
+              "name": "G"
+            },
+            {
+              "at": 4,
+              "name": "D"
+            },
+            {
+              "at": 6,
+              "name": "A7sus4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "pre-chorus",
+      "label": "Pre-tornada 2",
+      "lines": [
+        {
+          "text": "And all the roads that lead you there were winding",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 18,
+              "name": "D"
+            },
+            {
+              "at": 33,
+              "name": "Em"
+            }
+          ]
+        },
+        {
+          "text": "And all the lights that light the way are blinding",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 19,
+              "name": "D"
+            },
+            {
+              "at": 32,
+              "name": "Em"
+            }
+          ]
+        },
+        {
+          "text": "There are many things that I would like to say to you",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 14,
+              "name": "D"
+            },
+            {
+              "at": 32,
+              "name": "G"
+            },
+            {
+              "at": 39,
+              "name": "D"
+            },
+            {
+              "at": 45,
+              "name": "Em"
+            }
+          ]
+        },
+        {
+          "text": "But I don't know how",
+          "chords": [
+            {
+              "at": 0,
+              "name": "D"
+            },
+            {
+              "at": 6,
+              "name": "A7sus4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chorus",
+      "label": "Tornada 2",
+      "lines": [
+        {
+          "text": "I said maybe",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 4,
+              "name": "Em"
+            },
+            {
+              "at": 6,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "You're gonna be the one that saves me",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 19,
+              "name": "C"
+            },
+            {
+              "at": 27,
+              "name": "Em"
+            },
+            {
+              "at": 29,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "And after all",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 3,
+              "name": "C"
+            },
+            {
+              "at": 5,
+              "name": "Em"
+            },
+            {
+              "at": 7,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "You're my wonderwall",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 3,
+              "name": "C"
+            },
+            {
+              "at": 6,
+              "name": "Em"
+            },
+            {
+              "at": 8,
+              "name": "G"
+            },
+            {
+              "at": 10,
+              "name": "Em"
+            }
+          ]
+        },
+        {
+          "text": "I said maybe (I said maybe)",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 13,
+              "name": "Em"
+            },
+            {
+              "at": 16,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "You're gonna be the one that saves me",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 19,
+              "name": "C"
+            },
+            {
+              "at": 27,
+              "name": "Em"
+            },
+            {
+              "at": 29,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "And after all",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 3,
+              "name": "C"
+            },
+            {
+              "at": 5,
+              "name": "Em"
+            },
+            {
+              "at": 7,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "You're my wonderwall",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 3,
+              "name": "C"
+            },
+            {
+              "at": 6,
+              "name": "Em"
+            },
+            {
+              "at": 8,
+              "name": "G"
+            },
+            {
+              "at": 10,
+              "name": "Em"
+            }
+          ]
+        },
+        {
+          "text": "I said maybe (I said maybe)",
+          "chords": [
+            {
+              "at": 0,
+              "name": "C"
+            },
+            {
+              "at": 13,
+              "name": "Em"
+            },
+            {
+              "at": 16,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "You're gonna be the one that saves me (that saves me)",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 19,
+              "name": "C"
+            },
+            {
+              "at": 33,
+              "name": "Em"
+            },
+            {
+              "at": 39,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "You're gonna be the one that saves me (that saves me)",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 19,
+              "name": "C"
+            },
+            {
+              "at": 33,
+              "name": "Em"
+            },
+            {
+              "at": 39,
+              "name": "G"
+            }
+          ]
+        },
+        {
+          "text": "You're gonna be the one that saves me (that saves me)",
+          "chords": [
+            {
+              "at": 0,
+              "name": "Em"
+            },
+            {
+              "at": 19,
+              "name": "C"
+            },
+            {
+              "at": 33,
+              "name": "Em"
+            },
+            {
+              "at": 39,
+              "name": "G"
+            },
+            {
+              "at": 41,
+              "name": "Em"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "solo",
+      "label": "Solo",
+      "lines": [
+        {
+          "text": "[tab]",
+          "chords": [],
+          "solo_tab": "e|--------3-0----|\nB|-1-0-1---------|\nG|---------------|\nD|---------------|  x8\nA|---------------|\nE|---------------|"
+        }
+      ]
+    }
+  ]
+}
