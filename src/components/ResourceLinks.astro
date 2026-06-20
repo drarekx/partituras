@@ -1,0 +1,184 @@
+---
+/** Compact row of resource links for a song. YouTube, Spotify, lyrics, wiki... */
+import type { Resource, ResourceType } from "../lib/song";
+
+interface Props {
+  resources: Resource[];
+}
+
+const { resources } = Astro.props;
+
+if (!resources || resources.length === 0) {
+  // Render nothing
+}
+
+const TYPE_LABEL: Record<ResourceType, string> = {
+  youtube: "YouTube",
+  youtube_music: "YouTube Music",
+  spotify: "Spotify",
+  apple_music: "Apple Music",
+  tidal: "Tidal",
+  bandcamp: "Bandcamp",
+  soundcloud: "SoundCloud",
+  lyrics: "Lyrics",
+  wikipedia: "Wikipedia",
+  official: "Official",
+  musicbrainz: "MusicBrainz",
+  discogs: "Discogs",
+  other: "Link",
+};
+
+const TYPE_COLOR: Record<ResourceType, string> = {
+  youtube: "#ff0033",
+  youtube_music: "#ff0033",
+  spotify: "#1db954",
+  apple_music: "#fa243c",
+  tidal: "#000000",
+  bandcamp: "#1da0c3",
+  soundcloud: "#ff5500",
+  lyrics: "#5a78b4",
+  wikipedia: "#5a5a5a",
+  official: "#b48a2c",
+  musicbrainz: "#5a78b4",
+  discogs: "#2a2520",
+  other: "#5a5a5a",
+};
+
+const ICON: Record<ResourceType, string> = {
+  youtube:
+    '<path d="M23 7s-.3-2.3-1.2-3.2C20.7 2.7 19.5 2.6 19 2.5c-2.7-.3-6.7-.3-6.7-.3s-4 0-6.7.3c-.6.1-1.7.2-2.8 1.3C1.6 4.7 1.3 7 1.3 7s-.3 2.7-.3 5.4v2.5c0 2.7.3 5.4.3 5.4s.3 2.3 1.2 3.2c1.1 1.1 2.5 1.1 3.2 1.2 2.4.2 6.3.3 9.3.3 0 0 4 0 6.7-.3.5-.1 1.7-.2 2.8-1.3.9-.9 1.2-3.2 1.2-3.2s.3-2.7.3-5.4v-2.5C23.3 9.7 23 7 23 7zM9.7 14.8V8l6.3 3.4-6.3 3.4z"/>',
+  youtube_music:
+    '<path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm-1.5 16.5L7 18V8.5l8 4-4.5 4z"/>',
+  spotify:
+    '<path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.6-6-2-10-1.1-.4.2-.8 0-1-.4-.2-.4 0-.8.4-1 4.6-1.1 8.5-.6 11.7 1.3.3.2.4.6.3 1zm1.5-3.2c-.3.4-.8.6-1.2.3-3.1-1.9-7.9-2.4-11.6-1.3-.4.1-1-.1-1.1-.6-.1-.4.1-1 .6-1.1 4.2-1.3 9.6-.7 13.3 1.5.4.2.5.8.3 1.2zm.1-3.4c-3.7-2.2-9.9-2.4-13.5-1.3-.4.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.1-1.2 11-1 15.3 1.5.5.3.6.8.4 1.2-.3.4-.9.6-1.3.3z"/>',
+  apple_music:
+    '<path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.13c-.13-.5-.41-1.01-.86-1.36-.41-.32-.89-.5-1.39-.5-1.66 0-3.32-.01-4.98 0-.62 0-1.25.18-1.79.55-.49.34-.79.88-.95 1.43-.1.36-.14.74-.16 1.11-.04.69-.01 1.38-.02 2.07v9.71c-.79.32-1.61.55-2.45.69-1.16.21-2.34.21-3.5.02-1.07-.18-2.04-.6-2.84-1.27-.79-.66-1.38-1.52-1.6-2.49-.31-1.32-.13-2.7.61-3.86.62-.97 1.6-1.69 2.71-2.07 1.32-.45 2.74-.5 4.11-.29 0-.18.01-.36 0-.54V5.79c-.03-.49-.34-.95-.83-1.07-1.31-.34-2.69-.4-4.04-.31-1.61.1-3.22.43-4.69 1.13C.74 6.4.04 7.45 0 8.62c-.02.74.07 1.49.27 2.2.41 1.46 1.27 2.79 2.49 3.65 1.59 1.13 3.55 1.59 5.45 1.59.29 0 .57-.01.86-.04v3.32c-.93.21-1.87.45-2.78.74-1.18.38-2.34.88-3.34 1.62-1.5 1.11-2.51 2.78-2.62 4.59-.07 1.13.13 2.27.69 3.27.86 1.55 2.41 2.7 4.11 3.24 1.81.58 3.75.6 5.6.27 1.83-.32 3.55-1.06 5.08-2.1.04-.03.07-.06.11-.09.13-2.27.27-4.54.4-6.81 0-.11.04-.21.11-.27z"/>',
+  tidal:
+    '<path d="M12 0L8 4l4 4 4-4-4-4zm-8 8l-4 4 4 4 4-4-4-4zm16 0l-4 4 4 4 4-4-4-4zm-8 8l-4 4 4 4 4-4-4-4z"/>',
+  bandcamp:
+    '<path d="M0 18.75L7.437 5.25H24l-7.438 13.5H0z"/>',
+  soundcloud:
+    '<path d="M1.18 14.06c-.71 0-1.18-.58-1.18-1.27V8.83c0-.69.47-1.27 1.18-1.27.71 0 1.18.58 1.18 1.27v3.96c0 .69-.47 1.27-1.18 1.27zm2.45-1.18c0 1.04.71 1.18 1.18 1.18.71 0 1.18-.14 1.18-1.18V6.92c0-.69-.47-1.18-1.18-1.18s-1.18.49-1.18 1.18v5.96zM6.99 14.06c-.71 0-1.18-.58-1.18-1.27V7.54c0-.69.47-1.27 1.18-1.27.71 0 1.18.58 1.18 1.27v5.25c0 .69-.47 1.27-1.18 1.27zm4.5 0c-.71 0-1.18-.58-1.18-1.27V7.54c0-.69.47-1.27 1.18-1.27.71 0 1.18.58 1.18 1.27v3.61c1.41-1.36 4.13-2.32 4.13.96v2.49c0 .69.47 1.27 1.18 1.27.71 0 1.18-.58 1.18-1.27v-2.92c0-3.05-3.51-3.18-5.31-1.7V5.85c0-.69-.47-1.18-1.18-1.18s-1.18.49-1.18 1.18v6.94c0 .69.47 1.27 1.18 1.27z"/>',
+  lyrics:
+    '<path d="M3 3h13v2H3zm0 4h13v2H3zm0 4h9v2H3zm0 4h13v2H3z"/><path d="M19 3l-1 2h-1v2h2v12h2V3z"/>',
+  wikipedia:
+    '<text x="12" y="18" text-anchor="middle" font-family="serif" font-size="16" font-weight="700">W</text>',
+  official:
+    '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18" fill="none" stroke="currentColor" stroke-width="1.2"/>',
+  musicbrainz:
+    '<circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="currentColor"/><circle cx="12" cy="12" r="6.5" fill="none" stroke="currentColor" stroke-width="1"/>',
+  discogs:
+    '<circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="currentColor"/>',
+  other:
+    '<path d="M10 13a5 5 0 0 0 7.07 0l3.18-3.18a5 5 0 0 0-7.07-7.07l-1.59 1.59M14 11a5 5 0 0 0-7.07 0L3.75 14.18a5 5 0 0 0 7.07 7.07l1.59-1.59" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>',
+};
+
+function labelFor(r: Resource): string {
+  if (r.label && r.label.trim()) return r.label;
+  return TYPE_LABEL[r.type] ?? r.type;
+}
+---
+
+{resources && resources.length > 0 && (
+  <section class="resources" aria-label="External resources">
+    <h3 class="resources__h">Resources</h3>
+    <ul class="resources__list">
+      {resources.map((r) => (
+        <li>
+          <a
+            class={`resource resource--${r.type}`}
+            href={r.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={labelFor(r)}
+          >
+            <svg
+              class="resource__icon"
+              viewBox="0 0 24 24"
+              width="14"
+              height="14"
+              aria-hidden="true"
+              set:html={`<g>${ICON[r.type] ?? ICON.other}</g>`}
+            />
+            <span class="resource__label">{labelFor(r)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .resources {
+    margin: 1.25rem 0 0;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--blood);
+    background: var(--paper);
+  }
+  .resources__h {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-fade);
+    margin: 0 0 0.55rem;
+    font-weight: 500;
+  }
+  .resources__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .resource {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.65rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-decoration: none;
+    transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+  }
+  .resource:hover {
+    border-color: var(--blood);
+    color: var(--blood);
+    transform: translateY(-1px);
+  }
+  .resource__icon {
+    color: var(--ink-soft);
+    fill: currentColor;
+    flex: 0 0 auto;
+  }
+  .resource:hover .resource__icon {
+    color: var(--blood);
+  }
+  .resource--youtube .resource__icon,
+  .resource--youtube_music .resource__icon {
+    color: #d10028;
+  }
+  .resource--spotify .resource__icon {
+    color: #1db954;
+  }
+  .resource--apple_music .resource__icon {
+    color: #fa243c;
+  }
+  .resource--bandcamp .resource__icon {
+    color: #1da0c3;
+  }
+  .resource--soundcloud .resource__icon {
+    color: #ff5500;
+  }
+  .resource__label {
+    white-space: nowrap;
+  }
+</style>

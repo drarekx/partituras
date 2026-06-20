@@ -1,0 +1,445 @@
+{
+  "id": "la-bella-lola",
+  "title": "La Bella Lola",
+  "artist": "Canciones Populares",
+  "year": 1920,
+  "language": "es",
+  "genre": [
+    "folk",
+    "spanish",
+    "traditional",
+    "nautical"
+  ],
+  "decade": 1920,
+  "difficulty": "beginner",
+  "tags": [
+    "3/4",
+    "verse-chorus",
+    "spanish",
+    "nautical",
+    "waltz"
+  ],
+  "type": "original",
+  "key": "D major",
+  "capo": 0,
+  "tuning": "Standard (E A D G B E)",
+  "time_signature": "3/4",
+  "chords_used": [
+    "D",
+    "B7",
+    "A7",
+    "Em"
+  ],
+  "source": {
+    "label": "Ultimate-Guitar",
+    "url": "https://tabs.ultimate-guitar.com/tab/canciones-populares/la-bella-lola-chords-1654580",
+    "contributor": "Canciones Populares",
+    "date": "2014-03-14"
+  },
+  "resources": [
+    {
+      "type": "wikipedia",
+      "label": "La Bella Lola",
+      "url": "https://es.wikipedia.org/wiki/La_bella_Lola"
+    },
+    {
+      "type": "youtube",
+      "label": "Search",
+      "url": "https://www.youtube.com/results?search_query=La+Bella+Lola+cancion+popular"
+    },
+    {
+      "type": "lyrics",
+      "label": "Cancioneros",
+      "url": "https://www.cancioneros.com/letras/la-bella-lola"
+    }
+  ],
+  "notes": [
+    "Cançó popular espanyola d'origen incert (se sol datar a principis del segle XX).",
+    "La tornada ('Ay! que placer sentia yo') es repeteix tres cops al llarg de la canço amb la mateixa melodia.",
+    "Mesura de vals (3/4)."
+  ],
+  "personal": {
+    "added_at": "2024-06-20",
+    "status": "learning"
+  },
+  "sections": [
+    {
+      "kind": "verse",
+      "label": "Estrofa 1",
+      "lines": [
+        {
+          "text": "Después de un año de no ver tierra",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "porque la guerra me lo impidió,",
+          "chords": [
+            {
+              "name": "B7",
+              "at": 0
+            },
+            {
+              "name": "A7",
+              "at": 2
+            }
+          ]
+        },
+        {
+          "text": "me fui al puerto donde se hallaba",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "la que adoraba mi corazón.",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chorus",
+      "label": "Estribillo 1",
+      "lines": [
+        {
+          "text": "Ay !  que placer sentía yo,",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 10
+            }
+          ]
+        },
+        {
+          "text": "cuando en la playa",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "sacó el pañuelo y me saludó,",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "luego después se acercó a mi,",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 14
+            },
+            {
+              "name": "B7",
+              "at": 19
+            }
+          ]
+        },
+        {
+          "text": "me dio un abrazo,",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "y en aquel lazo creí morir.",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chorus",
+      "label": "Tornada",
+      "lines": [
+        {
+          "text": "Cuando en la playa, la bella Lola,",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "su larga cola luciendo va,",
+          "chords": [
+            {
+              "name": "B7",
+              "at": 0
+            },
+            {
+              "name": "A7",
+              "at": 2
+            }
+          ]
+        },
+        {
+          "text": "los marineros se vuelven locos",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "y hasta el piloto pierde el compás.",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chorus",
+      "label": "Estribillo 2",
+      "lines": [
+        {
+          "text": "Ay !  que placer sentía yo,",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 10
+            }
+          ]
+        },
+        {
+          "text": "cuando en la playa",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "sacó el pañuelo y me saludó,",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "luego después se acercó a mi,",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 14
+            },
+            {
+              "name": "B7",
+              "at": 19
+            }
+          ]
+        },
+        {
+          "text": "me dio un abrazo,",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "y en aquel lazo creí morir.",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "verse",
+      "label": "Estrofa 2",
+      "lines": [
+        {
+          "text": "La cubanita lloraba triste,",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "al verse sola y en alta mar,",
+          "chords": [
+            {
+              "name": "B7",
+              "at": 0
+            },
+            {
+              "name": "A7",
+              "at": 2
+            }
+          ]
+        },
+        {
+          "text": "el marinero la consolaba:",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "¿No llores Lola, no llores más!?",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chorus",
+      "label": "Estribillo 3",
+      "lines": [
+        {
+          "text": "Ay !  que placer sentía yo,",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 10
+            }
+          ]
+        },
+        {
+          "text": "cuando en la playa",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "sacó el pañuelo y me saludó,",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "luego después se acercó a mi,",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 14
+            },
+            {
+              "name": "B7",
+              "at": 19
+            }
+          ]
+        },
+        {
+          "text": "me dio un abrazo,",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "y en aquel lazo creí morir.",
+          "chords": [
+            {
+              "name": "A7",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 11
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

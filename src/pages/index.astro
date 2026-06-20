@@ -1,0 +1,484 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { songs } from "../data/songs";
+
+// Derive available filter values from the song collection
+const allLangs = Array.from(new Set(songs.map((s) => s.language).filter(Boolean))) as string[];
+const allDecades = Array.from(new Set(songs.map((s) => s.decade).filter(Boolean))) as number[];
+const allDifficulties = Array.from(new Set(songs.map((s) => s.difficulty).filter(Boolean))) as string[];
+
+const LANG_LABEL: Record<string, string> = { ca: "Català", es: "Español", en: "English", fr: "Français" };
+const DIFF_LABEL: Record<string, string> = { beginner: "Beginner", intermediate: "Intermediate", advanced: "Advanced" };
+---
+
+<Layout title="Chords">
+  <section class="hero">
+    <h1 class="hero__title">Songs</h1>
+    <div class="search" role="search">
+      <label for="q" class="search__label">Search</label>
+      <div class="search__field">
+        <svg class="search__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M16.5 16.5 L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input
+          id="q"
+          type="search"
+          name="q"
+          class="search__input"
+          placeholder="Title, artist, album…"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+        />
+        <button type="button" class="search__clear" aria-label="Clear search" hidden>×</button>
+      </div>
+
+      <div class="filters" data-filters>
+        <span class="filters__label">Filter</span>
+        {allLangs.length > 0 && (
+          <span class="filters__group">
+            <span class="filters__caption">Language</span>
+            {allLangs.map((lang) => (
+              <button
+                type="button"
+                class="filter-chip"
+                data-filter="lang"
+                data-value={lang}
+                aria-pressed="false"
+              >{LANG_LABEL[lang] ?? lang}</button>
+            ))}
+          </span>
+        )}
+        {allDecades.length > 0 && (
+          <span class="filters__group">
+            <span class="filters__caption">Decade</span>
+            {allDecades.sort().map((dec) => (
+              <button
+                type="button"
+                class="filter-chip"
+                data-filter="decade"
+                data-value={String(dec)}
+                aria-pressed="false"
+              >{dec}s</button>
+            ))}
+          </span>
+        )}
+        {allDifficulties.length > 0 && (
+          <span class="filters__group">
+            <span class="filters__caption">Level</span>
+            {allDifficulties.map((diff) => (
+              <button
+                type="button"
+                class="filter-chip"
+                data-filter="difficulty"
+                data-value={diff}
+                aria-pressed="false"
+              >{DIFF_LABEL[diff] ?? diff}</button>
+            ))}
+          </span>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="results" aria-live="polite">
+    <p class="results__count" data-count>{songs.length} song{songs.length === 1 ? "" : "s"}</p>
+    <ol class="results__list" data-list>
+      {songs.map((song, idx) => {
+        const haystack = [
+          song.title,
+          song.artist,
+          song.album,
+          ...(song.tags ?? []),
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+        return (
+          <li
+            class="card"
+            data-card
+            data-haystack={haystack}
+            data-lang={song.language ?? ""}
+            data-decade={song.decade ?? ""}
+            data-difficulty={song.difficulty ?? ""}
+            style={`--i:${idx}`}
+          >
+            <a href={`/songs/${song.id}`} class="card__link">
+              <span class="card__num">{String(idx + 1).padStart(2, "0")}</span>
+              <div class="card__main">
+                <h2 class="card__title">{song.title}</h2>
+                <p class="card__meta">
+                  <span>{song.artist}</span>
+                  {song.album && <><span aria-hidden="true">·</span><span>{song.album}</span></>}
+                  {song.year && <><span aria-hidden="true">·</span><span>{song.year}</span></>}
+                </p>
+                <div class="card__tags">
+                  {song.language && <span class="meta-chip meta-chip--lang" title="Language">{song.language.toUpperCase()}</span>}
+                  {song.decade && <span class="meta-chip" title="Decade">{song.decade}s</span>}
+                  {song.difficulty && <span class="meta-chip meta-chip--diff" title="Difficulty">{DIFF_LABEL[song.difficulty] ?? song.difficulty}</span>}
+                  {song.type === "cover" && <span class="meta-chip meta-chip--type">cover</span>}
+                  {song.genre?.slice(0, 2).map((g) => <span class="meta-chip meta-chip--genre">{g}</span>)}
+                </div>
+              </div>
+              <div class="card__chords" aria-label={`${song.chords_used.length} chords`}>
+                {song.chords_used.slice(0, 6).map((name: string) => (
+                  <span class="card__chip">{name}</span>
+                ))}
+                {song.chords_used.length > 6 && (
+                  <span class="card__chip card__chip--more">+{song.chords_used.length - 6}</span>
+                )}
+              </div>
+            </a>
+          </li>
+        );
+      })}
+    </ol>
+    <p class="results__empty" data-empty hidden>
+      No songs match <strong data-empty-q></strong>.
+    </p>
+  </section>
+</Layout>
+
+<script>
+  const input = document.getElementById("q") as HTMLInputElement | null;
+  const list = document.querySelector("[data-list]") as HTMLOListElement | null;
+  const count = document.querySelector("[data-count]") as HTMLElement | null;
+  const empty = document.querySelector("[data-empty]") as HTMLElement | null;
+  const emptyQ = document.querySelector("[data-empty-q]") as HTMLElement | null;
+  const clearBtn = document.querySelector(".search__clear") as HTMLButtonElement | null;
+  const filterChips = Array.from(document.querySelectorAll<HTMLButtonElement>(".filter-chip"));
+
+  if (input && list && count && empty && emptyQ) {
+    const cards = Array.from(list.querySelectorAll<HTMLLIElement>("[data-card]"));
+    const countEl: HTMLElement = count;
+    const emptyEl: HTMLElement = empty;
+    const emptyQEl: HTMLElement = emptyQ;
+    const inputEl: HTMLInputElement = input;
+
+    function normalize(s: string): string {
+      return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function activeFilters() {
+      const map: Record<string, Set<string>> = { lang: new Set(), decade: new Set(), difficulty: new Set() };
+      for (const chip of filterChips) {
+        if (chip.getAttribute("aria-pressed") === "true") {
+          const kind = chip.dataset.filter;
+          const val = chip.dataset.value;
+          if (kind && val) map[kind].add(val);
+        }
+      }
+      return map;
+    }
+
+    function applyAll(): void {
+      const q = normalize(inputEl.value.trim());
+      const f = activeFilters();
+      let shown = 0;
+      for (const card of cards) {
+        const haystack = card.dataset.haystack ?? "";
+        const lang = card.dataset.lang ?? "";
+        const decade = card.dataset.decade ?? "";
+        const diff = card.dataset.difficulty ?? "";
+
+        const matchText = !q || normalize(haystack).includes(q);
+        const matchLang = f.lang.size === 0 || f.lang.has(lang);
+        const matchDecade = f.decade.size === 0 || f.decade.has(decade);
+        const matchDiff = f.difficulty.size === 0 || f.difficulty.has(diff);
+
+        const match = matchText && matchLang && matchDecade && matchDiff;
+        card.hidden = !match;
+        if (match) shown++;
+      }
+      const total = cards.length;
+      countEl.textContent = shown === total
+        ? `${total} song${total === 1 ? "" : "s"}`
+        : `${shown} of ${total}`;
+      emptyEl.hidden = shown !== 0;
+      emptyQEl.textContent = inputEl.value.trim();
+      if (clearBtn) clearBtn.hidden = inputEl.value.length === 0;
+    }
+
+    inputEl.addEventListener("input", applyAll);
+    inputEl.addEventListener("search", applyAll);
+    clearBtn?.addEventListener("click", () => {
+      inputEl.value = "";
+      applyAll();
+      inputEl.focus();
+    });
+
+    for (const chip of filterChips) {
+      chip.addEventListener("click", () => {
+        const isActive = chip.getAttribute("aria-pressed") === "true";
+        chip.setAttribute("aria-pressed", String(!isActive));
+        chip.classList.toggle("is-active", !isActive);
+        applyAll();
+      });
+    }
+
+    // Restore state from URL on first load
+    const url = new URL(window.location.href);
+    const urlQ = url.searchParams.get("q");
+    if (urlQ) {
+      inputEl.value = urlQ;
+    }
+    for (const key of ["lang", "decade", "difficulty"] as const) {
+      const vals = url.searchParams.getAll(key);
+      for (const v of vals) {
+        const chip = filterChips.find((c) => c.dataset.filter === key && c.dataset.value === v);
+        if (chip) {
+          chip.setAttribute("aria-pressed", "true");
+          chip.classList.add("is-active");
+        }
+      }
+    }
+    applyAll();
+  }
+</script>
+
+<style>
+  .hero {
+    display: grid;
+    gap: 1.5rem;
+    padding-block: 1rem 1.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: start;
+  }
+  .hero__title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: .9;
+    letter-spacing: -.035em;
+    margin: 0;
+    position: relative;
+  }
+  .hero__title::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 5px;
+    background: var(--blood);
+    margin-top: .35rem;
+  }
+
+  .search { width: 100%; }
+  .search__label {
+    display: block;
+    font-family: var(--mono);
+    font-size: .65rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink-fade);
+    margin-bottom: .4rem;
+  }
+  .search__field {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    padding: .65rem .9rem;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-radius: 2px;
+    transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+  }
+  .search__field:focus-within {
+    border-color: var(--blood);
+    box-shadow: 4px 4px 0 0 var(--blood);
+  }
+  .search__icon { color: var(--ink-soft); flex: 0 0 auto; }
+  .search__input {
+    flex: 1;
+    font: inherit;
+    font-family: var(--mono);
+    font-size: 1rem;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  .search__input::placeholder { color: var(--ink-fade); }
+  .search__clear {
+    font-family: var(--mono);
+    font-size: 1.1rem;
+    color: var(--ink-fade);
+    line-height: 1;
+    padding: .25rem .45rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+  .search__clear:hover { color: var(--blood); border-color: var(--blood); }
+
+  /* ---- Filters ---- */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .85rem;
+    margin-top: 1rem;
+  }
+  .filters__label {
+    font-family: var(--mono);
+    font-size: .65rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink-fade);
+  }
+  .filters__group {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+  }
+  .filters__caption {
+    font-family: var(--mono);
+    font-size: .62rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--ink-fade);
+    margin-right: .15rem;
+  }
+  .filter-chip {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .04em;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid var(--rule);
+    padding: .2rem .55rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+  }
+  .filter-chip:hover { color: var(--ink); border-color: var(--ink); }
+  .filter-chip.is-active {
+    color: var(--paper);
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  /* ---- Results ---- */
+  .results { margin-top: .5rem; }
+  .results__count {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-fade);
+    padding-bottom: .5rem;
+    border-bottom: 1.5px solid var(--ink);
+    margin-bottom: 0;
+  }
+  .results__list { border-bottom: 1.5px solid var(--ink); }
+  .results__empty {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    text-align: center;
+    font-family: var(--sans);
+    color: var(--ink-soft);
+    background: var(--paper-deep);
+    border: 1px dashed var(--ink-fade);
+  }
+  .results__empty strong { color: var(--blood); font-family: var(--mono); }
+
+  .card {
+    border-bottom: 1px solid var(--rule);
+    transition: background var(--t-fast) var(--ease);
+  }
+  .card:hover { background: rgba(192, 50, 29, 0.05); }
+  .card[hidden] { display: none; }
+  .card__link {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    padding: 1rem .5rem;
+    color: var(--ink);
+  }
+  .card__num {
+    font-family: var(--display);
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.9rem;
+    line-height: 1;
+    color: var(--blood);
+    letter-spacing: -.04em;
+  }
+  .card__title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+    line-height: 1.05;
+    letter-spacing: -.015em;
+    margin: 0 0 .25rem;
+  }
+  .card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem .55rem;
+    margin: 0;
+    font-family: var(--mono);
+    font-size: .78rem;
+    color: var(--ink-soft);
+  }
+  .card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3rem;
+    margin-top: .35rem;
+  }
+  .meta-chip {
+    font-family: var(--mono);
+    font-size: .62rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    padding: .1rem .4rem;
+    border-radius: 2px;
+    line-height: 1.3;
+  }
+  .meta-chip--lang { color: var(--blood); border-color: var(--blood); }
+  .meta-chip--type { color: var(--gold); border-color: var(--gold); }
+  .meta-chip--genre { color: var(--blue); border-color: var(--blue); }
+  .card__chords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3rem;
+    justify-content: flex-end;
+    max-width: 14rem;
+  }
+  .card__chip {
+    font-family: var(--mono);
+    font-size: .68rem;
+    font-weight: 600;
+    color: var(--blood);
+    border: 1px solid var(--blood);
+    padding: .12rem .4rem;
+    line-height: 1.3;
+  }
+  .card__chip--more {
+    color: var(--ink-fade);
+    border-color: var(--ink-fade);
+  }
+
+  @media (max-width: 760px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .card__link {
+      grid-template-columns: 2.5rem 1fr;
+    }
+    .card__chords { display: none; }
+  }
+
+  @media (max-width: 420px) {
+    .card__meta { font-size: .72rem; }
+  }
+</style>

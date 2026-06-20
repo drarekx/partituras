@@ -1,0 +1,103 @@
+---
+import ChordDiagram from "./ChordDiagram.astro";
+import type { ChordShape } from "../lib/chords";
+import { TIER_LABEL, CATEGORY_LABEL } from "../lib/chords";
+
+interface Props {
+  name: string;
+  chord: ChordShape;
+}
+
+const { name, chord } = Astro.props;
+const tier = chord.tier ?? "principiante";
+const category = chord.category ?? "major";
+---
+
+<figure
+  class="chordcard"
+  data-chord={name}
+  data-name={name.toLowerCase()}
+  data-tier={tier}
+  data-category={category}
+  aria-label={`${name} chord diagram`}
+>
+  <ChordDiagram chord={chord} size={84} hideVariant={true} />
+  <figcaption class="chordcard__meta">
+    <span class="chordcard__name">{name}</span>
+    <span class="chordcard__tags">
+      <span class={`chordcard__badge chordcard__badge--tier-${tier}`}>
+        {TIER_LABEL[tier]}
+      </span>
+      <span class="chordcard__badge chordcard__badge--cat">
+        {CATEGORY_LABEL[category]}
+      </span>
+    </span>
+  </figcaption>
+</figure>
+
+<style>
+  .chordcard {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .35rem;
+    padding: .75rem .5rem .6rem;
+    margin: 0;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-radius: 2px;
+    text-align: center;
+    transition:
+      background var(--t-fast) var(--ease),
+      border-color var(--t-fast) var(--ease),
+      transform var(--t-fast) var(--ease),
+      box-shadow var(--t-fast) var(--ease);
+  }
+  .chordcard:hover {
+    background: var(--paper-deep);
+    box-shadow: 3px 3px 0 0 var(--blood);
+    transform: translate(-1px, -1px);
+  }
+  .chordcard[hidden] { display: none; }
+  .chordcard__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
+    line-height: 1;
+  }
+  .chordcard__name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -.01em;
+  }
+  .chordcard__tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .25rem;
+  }
+  .chordcard__badge {
+    font-family: var(--mono);
+    font-size: .55rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: .1rem .35rem;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    line-height: 1.2;
+  }
+  .chordcard__badge--tier-principiante { color: #5a8c4a; border-color: #5a8c4a; }
+  .chordcard__badge--tier-intermedio  { color: var(--gold); border-color: var(--gold); }
+  .chordcard__badge--tier-avanzado   { color: var(--blue); border-color: var(--blue); }
+  .chordcard__badge--tier-experto    { color: var(--blood); border-color: var(--blood); }
+  .chordcard__badge--cat {
+    color: var(--ink-fade);
+    border-color: var(--ink-fade);
+  }
+
+  @media (max-width: 540px) {
+    .chordcard__badge--cat { display: none; }
+  }
+</style>

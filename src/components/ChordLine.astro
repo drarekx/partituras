@@ -1,0 +1,201 @@
+---
+import type { ChordPlacement } from "../lib/song";
+import { getChord, normalizeChordName } from "../lib/chords";
+
+interface Props {
+  /** The lyric line text. May contain leading/trailing spaces for alignment. */
+  text: string;
+  /** Chord placements along the line. */
+  chords: ChordPlacement[];
+  /** Optional repeat marker, e.g. "2×". */
+  repeat?: string;
+  /** True when the line is purely a chord progression (intro / solo / interlude). */
+  progressionOnly?: boolean;
+}
+
+const { text, chords, repeat, progressionOnly = false } = Astro.props;
+const sortedChords = [...chords].sort((a, b) => a.at - b.at);
+const unknownNames = sortedChords
+  .map((c) => c.name)
+  .filter((n) => !getChord(normalizeChordName(n)));
+
+/**
+ * Build a sequence of tokens (text / chord) so we can render chord chips
+ * inline on mobile while keeping the lyric line readable.
+ */
+type Token =
+  | { kind: "text"; value: string }
+  | { kind: "chord"; value: string };
+
+function buildInlineTokens(text: string, chords: ChordPlacement[]): Token[] {
+  if (!chords.length) return [{ kind: "text", value: text }];
+  const sorted = [...chords].sort((a, b) => a.at - b.at);
+  const tokens: Token[] = [];
+  let cursor = 0;
+  for (const c of sorted) {
+    if (c.at > cursor) {
+      tokens.push({ kind: "text", value: text.slice(cursor, c.at) });
+    }
+    tokens.push({ kind: "chord", value: normalizeChordName(c.name) });
+    cursor = c.at;
+  }
+  if (cursor < text.length) {
+    tokens.push({ kind: "text", value: text.slice(cursor) });
+  }
+  return tokens;
+}
+
+const tokens = buildInlineTokens(text, chords);
+---
+
+<div
+  class:list={["line", progressionOnly && "line--progression"]}
+  data-repeat={repeat}
+>
+  {progressionOnly ? (
+    <div class="line__progression">
+      {sortedChords.map((c) => (
+        <span class="chordchip chordchip--bar">{normalizeChordName(c.name)}</span>
+      ))}
+      {repeat && <span class="line__repeat">↻ {repeat}</span>}
+    </div>
+  ) : (
+    <>
+      <div class="line__chords" aria-hidden="true">
+        {sortedChords.map((c) => (
+          <span
+            class="chordchip chordchip--abs"
+            style={`left: calc(${c.at} * 1ch);`}
+            data-chord={normalizeChordName(c.name)}
+          >{normalizeChordName(c.name)}</span>
+        ))}
+      </div>
+      <p class="line__text">
+        {tokens.map((t) =>
+          t.kind === "chord"
+            ? <span class="chordchip chordchip--inline">{t.value}</span>
+            : <span>{t.value}</span>
+        )}
+      </p>
+    </>
+  )}
+  {unknownNames.length > 0 && (
+    <span class="line__warn" title={`Chord(s) without diagram: ${unknownNames.join(", ")}`}>!</span>
+  )}
+</div>
+
+<style>
+  .line {
+    position: relative;
+    padding: .6rem 0 .35rem;
+    line-height: 1.55;
+  }
+  .line + .line {
+    border-top: 1px dashed rgba(122, 111, 93, .25);
+  }
+
+  /* ---------- Absolute chord chips above the lyrics (desktop) ---------- */
+
+  .line__chords {
+    position: relative;
+    height: 1.4rem;
+    pointer-events: none;
+  }
+  .chordchip--abs {
+    position: absolute;
+    top: 0;
+    transform: translateX(-2px);
+    pointer-events: auto;
+  }
+
+  /* ---------- Lyric text — monospace so absolute positioning works ----- */
+
+  .line__text {
+    font-family: var(--mono);
+    font-size: .98rem;
+    color: var(--ink);
+    white-space: pre;
+    letter-spacing: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ---------- Progression-only line (intro / interlude / solo) --------- */
+
+  .line__progression {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .4rem 1rem;
+    padding: .35rem 0;
+  }
+
+  /* ---------- Shared chord chip styles --------------------------------- */
+
+  :global(.chordchip) {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: .82rem;
+    letter-spacing: .02em;
+    color: var(--blood);
+    white-space: nowrap;
+    line-height: 1.3;
+    transition: color var(--t-fast) var(--ease);
+  }
+  :global(.chordchip:hover) {
+    color: var(--ink);
+  }
+
+  /* ---------- Inline chord chip (mobile) ------------------------------- */
+
+  .chordchip--inline {
+    display: none;
+    padding: .08rem .32rem;
+    margin-right: .12rem;
+    background: rgba(192, 50, 29, .09);
+    border: 1px solid rgba(192, 50, 29, .35);
+    border-radius: 2px;
+    font-size: .75rem;
+  }
+
+  /* ---------- Repeat marker ------------------------------------------- */
+
+  .line__repeat {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .16em;
+    color: var(--ink-fade);
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+
+  /* ---------- Unknown-chord warning (dev affordance) ------------------ */
+
+  .line__warn {
+    position: absolute;
+    right: 0;
+    top: .15rem;
+    font-family: var(--mono);
+    font-size: .75rem;
+    color: var(--blood);
+    font-weight: 700;
+  }
+
+  /* ====================================================================
+     MOBILE / TABLET — drop the absolute mode, render chords inline so the
+     lyric line can wrap naturally. Hide the absolute layer entirely.
+     ==================================================================== */
+
+  @media (max-width: 760px) {
+    .line__chords { display: none; }
+    .chordchip--abs { display: none; }
+    .chordchip--inline { display: inline-block; }
+    .line__text {
+      white-space: normal;
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+    .line { padding: .35rem 0 .25rem; }
+    .line__warn { display: none; }
+  }
+</style>

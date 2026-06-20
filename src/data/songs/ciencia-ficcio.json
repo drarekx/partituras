@@ -1,0 +1,803 @@
+{
+  "title": "Ciència-Ficció",
+  "artist": "Els Amics de les Arts",
+  "year": 2012,
+  "key": "C major",
+  "capo": 0,
+  "tuning": "Standard (E A D G B E)",
+  "source": {
+    "label": "Ultimate-Guitar",
+    "url": "https://tabs.ultimate-guitar.com/tab/4213999"
+  },
+  "notes": [
+    "L’estructura no té estrofa-tornada; va directe d’estrofes amb un pont Am-Bb intermitent.",
+    "Hi ha una marca [ch]Am[/ch] sola entre les dues primeres parts: és un cop sec d’Am que obre el segon bloc."
+  ],
+  "sections": [
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Saps,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "una empresa japonesa,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 8
+            }
+          ]
+        },
+        {
+          "text": "té un prototip de màquina capaç",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 10
+            },
+            {
+              "name": "F",
+              "at": 20
+            }
+          ]
+        },
+        {
+          "text": "d'esborrar-te els records.",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 15
+            }
+          ]
+        },
+        {
+          "text": "Jo vaig veure-hi la manera",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 8
+            },
+            {
+              "name": "C",
+              "at": 20
+            }
+          ]
+        },
+        {
+          "text": "i vaig escriure per participar",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 14
+            },
+            {
+              "name": "F",
+              "at": 24
+            }
+          ]
+        },
+        {
+          "text": "a les proves pilot.",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 13
+            }
+          ]
+        },
+        {
+          "text": "M'ha vingut al cap mentre volava",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 15
+            },
+            {
+              "name": "G",
+              "at": 22
+            }
+          ]
+        },
+        {
+          "text": "un diumenge al llit",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 16
+            }
+          ]
+        },
+        {
+          "text": "ens despertàvem",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "mirant-nos els peus,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 15
+            }
+          ]
+        },
+        {
+          "text": "comparant-nos els dits",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 15
+            }
+          ]
+        },
+        {
+          "text": "i se m'ha escapat mitja rialla",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 13
+            },
+            {
+              "name": "G",
+              "at": 20
+            }
+          ]
+        },
+        {
+          "text": "ens he vist tant nens,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 17
+            }
+          ]
+        },
+        {
+          "text": "i amb tantes ganes.",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "Mai vam sospitar",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 13
+            }
+          ]
+        },
+        {
+          "text": "que acabaríem així.",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 12
+            }
+          ]
+        }
+      ],
+      "label": "Estrofa 1"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "M'han posat en un hotel,",
+          "chords": [
+            {
+              "name": "Dm",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 5
+            },
+            {
+              "name": "Bb",
+              "at": 9
+            }
+          ]
+        },
+        {
+          "text": "una suite descomunal",
+          "chords": [
+            {
+              "name": "Dm",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 6
+            },
+            {
+              "name": "Bb",
+              "at": 10
+            }
+          ]
+        },
+        {
+          "text": "es veu Tòquio des del cel,",
+          "chords": [
+            {
+              "name": "Dm",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 5
+            },
+            {
+              "name": "Bb",
+              "at": 11
+            }
+          ]
+        },
+        {
+          "text": "m'ha semblat un bon final.",
+          "chords": [
+            {
+              "name": "Dm",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 5
+            },
+            {
+              "name": "Bb",
+              "at": 9
+            }
+          ]
+        }
+      ],
+      "label": "Estrofa 2"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Avui he fet una visita prèvia",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 13
+            },
+            {
+              "name": "C",
+              "at": 22
+            }
+          ]
+        },
+        {
+          "text": "i he vist les instal·lacions",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 13
+            }
+          ]
+        },
+        {
+          "text": "m'han presentat els responsables",
+          "chords": [
+            {
+              "name": "F",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "que són la creme de la creme",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 14
+            }
+          ]
+        },
+        {
+          "text": "tot súper maco, reien molt",
+          "chords": [
+            {
+              "name": "F",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "\\\"arigatō, arigatō\\\"",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 8
+            }
+          ]
+        },
+        {
+          "text": "i el que m'ha fet de traductor",
+          "chords": [
+            {
+              "name": "F",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 12
+            }
+          ]
+        },
+        {
+          "text": "m'ha vist un pel acollonit",
+          "chords": [
+            {
+              "name": "E",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "i ha dit \\\"hi ha una part positiva\\\"",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "Que, pelis discos llibres llocs,",
+          "chords": [
+            {
+              "name": "F",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 15
+            }
+          ]
+        },
+        {
+          "text": "que donarien molts per tornar a",
+          "chords": [
+            {
+              "name": "E",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "viure'ls com el primer dia.",
+          "chords": [
+            {
+              "name": "F",
+              "at": 0
+            }
+          ]
+        }
+      ],
+      "label": "Estrofa 3"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Però mirant els leds",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 15
+            }
+          ]
+        },
+        {
+          "text": "i els electrodes",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "m'he vist panxa amunt",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 16
+            }
+          ]
+        },
+        {
+          "text": "un llit amb rodes",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "mentre van passant",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 14
+            }
+          ]
+        },
+        {
+          "text": "les llums d'un passadís",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 14
+            }
+          ]
+        },
+        {
+          "text": "i he entès que demà",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "serà una altra vida",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "que viuré feliç,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 15
+            }
+          ]
+        },
+        {
+          "text": "una mentida",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "però per perdonar-te",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "F",
+              "at": 13
+            }
+          ]
+        },
+        {
+          "text": "calia arribar aquí.",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 13
+            }
+          ]
+        }
+      ],
+      "label": "Estrofa 4"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Arribaré a l'aeroport,",
+          "chords": [
+            {
+              "name": "Dm",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 7
+            },
+            {
+              "name": "Bb",
+              "at": 12
+            }
+          ]
+        },
+        {
+          "text": "no portaré cap record,",
+          "chords": [
+            {
+              "name": "Dm",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 4
+            },
+            {
+              "name": "Bb",
+              "at": 7
+            }
+          ]
+        },
+        {
+          "text": "tu no em deixis preguntar",
+          "chords": [
+            {
+              "name": "Dm",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 5
+            },
+            {
+              "name": "Bb",
+              "at": 9
+            }
+          ]
+        },
+        {
+          "text": "digues \\\"hola, hem de marxar\\\"",
+          "chords": [
+            {
+              "name": "Dm",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 8
+            },
+            {
+              "name": "Bb",
+              "at": 12
+            }
+          ]
+        },
+        {
+          "text": "porta-ho tot al cotxe a punt,",
+          "chords": [
+            {
+              "name": "Dm",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 5
+            },
+            {
+              "name": "Bb",
+              "at": 11
+            }
+          ]
+        },
+        {
+          "text": "fes-me cas, tots dos ben lluny.",
+          "chords": [
+            {
+              "name": "Dm",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 8
+            },
+            {
+              "name": "Bb",
+              "at": 14
+            }
+          ]
+        }
+      ],
+      "label": "Estrofa 5"
+    },
+    {
+      "kind": "outro",
+      "lines": [
+        {
+          "text": "Fugir, tornar a començar en un poblet,",
+          "chords": [
+            {
+              "name": "Bb",
+              "at": 0
+            },
+            {
+              "name": "Bb",
+              "at": 19
+            }
+          ]
+        },
+        {
+          "text": "que tingui un nom que no",
+          "chords": [
+            {
+              "name": "Dm",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "puguem ni pronunciar.",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            }
+          ]
+        }
+      ],
+      "label": "Outro"
+    }
+  ],
+  "id": "ciencia-ficcio",
+  "tempo_bpm": 92,
+  "time_signature": "4/4",
+  "language": "ca",
+  "genre": [
+    "rock",
+    "pop-rock",
+    "catalan"
+  ],
+  "decade": 2010,
+  "difficulty": "beginner",
+  "tags": [
+    "4/4",
+    "barre-chords",
+    "fingerpicking-ok",
+    "storytelling"
+  ],
+  "type": "original",
+  "resources": [
+    {
+      "type": "youtube",
+      "label": "Search",
+      "url": "https://www.youtube.com/results?search_query=Els+Amics+de+les+Arts+Ciencia-Ficcio"
+    },
+    {
+      "type": "wikipedia",
+      "label": "Espècies per catalogar",
+      "url": "https://ca.wikipedia.org/wiki/Esp%C3%A8cies_per_catalogar"
+    }
+  ],
+  "personal": {
+    "added_at": "2024-06-20",
+    "status": "learning"
+  },
+  "chords_used": [
+    "C",
+    "G",
+    "F",
+    "Am",
+    "Dm",
+    "Bb",
+    "E"
+  ]
+}

@@ -1,0 +1,563 @@
+{
+  "title": "A Vegades",
+  "artist": "Els Amics de les Arts",
+  "album": "Espècies per catalogar",
+  "year": 2012,
+  "key": "G major",
+  "capo": 0,
+  "tuning": "Standard (E A D G B E)",
+  "source": {
+    "label": "Ultimate-Guitar",
+    "url": "https://tabs.ultimate-guitar.com/tab/els-amics-de-les-arts/a-vegades-chords-1548291"
+  },
+  "notes": [
+    "L’Estrofa 1 i l’Estrofa 2 comparteixen la mateixa melodia i la mateixa roda d’acords (G Bm C B G).",
+    "Jo et faria una cançó d’amor",
+    "només de tant en tant",
+    "Després de l’Estrofa 2 hi ha dues preguntes parlades (sense acords) que serveixen de transició.",
+    "En una tribu apache"
+  ],
+  "sections": [
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Ho sento molt si m'adormo amb Vent del plà, ho sento molt,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 7
+            },
+            {
+              "name": "C",
+              "at": 14
+            },
+            {
+              "name": "B",
+              "at": 32
+            },
+            {
+              "name": "G",
+              "at": 45
+            }
+          ]
+        },
+        {
+          "text": "ho sento molt si deixo péls a la dutxa, ho sento molt,",
+          "chords": [
+            {
+              "name": "Bm",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 7
+            },
+            {
+              "name": "B",
+              "at": 19
+            },
+            {
+              "name": "G",
+              "at": 33
+            }
+          ]
+        },
+        {
+          "text": "ho sento molt si trepitjo la cuina fregada ho sento molt,",
+          "chords": [
+            {
+              "name": "Bm",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 8
+            },
+            {
+              "name": "B",
+              "at": 24
+            },
+            {
+              "name": "G",
+              "at": 37
+            }
+          ]
+        },
+        {
+          "text": "ho sento molt si tolero la brutícia ho sento molt.",
+          "chords": [
+            {
+              "name": "Bm",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 8
+            },
+            {
+              "name": "B",
+              "at": 17
+            },
+            {
+              "name": "C",
+              "at": 30
+            }
+          ]
+        }
+      ],
+      "label": "Estrofa 1"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Jo et faria una cançó d'amor",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 11
+            }
+          ]
+        },
+        {
+          "text": "però qualsevol cosa que et digués",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 12
+            },
+            {
+              "name": "G",
+              "at": 24
+            }
+          ]
+        },
+        {
+          "text": "no seria original.",
+          "chords": [
+            {
+              "name": "Bm",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 7
+            }
+          ]
+        },
+        {
+          "text": "Ja ho haurien dit els Beatles",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "en el Sergeant Pepper's Lonely Hearts Club Band.",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            }
+          ]
+        }
+      ],
+      "label": "Pont"
+    },
+    {
+      "kind": "chorus",
+      "lines": [
+        {
+          "text": "I a vegades els ocells fan cagarades.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 9
+            },
+            {
+              "name": "C",
+              "at": 21
+            }
+          ]
+        },
+        {
+          "text": "I a vegades t'estimo però no m'agrades.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 9
+            },
+            {
+              "name": "Bm",
+              "at": 20
+            },
+            {
+              "name": "C",
+              "at": 23
+            }
+          ]
+        },
+        {
+          "text": "I a vegades penso si mai no la cagues.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 9
+            },
+            {
+              "name": "C",
+              "at": 21
+            }
+          ]
+        },
+        {
+          "text": "I a vegades va i se'm cremen les torrades,",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 9
+            },
+            {
+              "name": "B",
+              "at": 25
+            }
+          ]
+        },
+        {
+          "text": "però això últim només de tant en tant,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 7
+            },
+            {
+              "name": "G",
+              "at": 20
+            }
+          ]
+        },
+        {
+          "text": "només de tant en tant,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 4
+            }
+          ]
+        },
+        {
+          "text": "només de tant en tant,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 4
+            }
+          ]
+        },
+        {
+          "text": "només de tant en tant.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "D",
+              "at": 5
+            }
+          ]
+        }
+      ],
+      "label": "Tornada 1"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Ja n'aprendré de somriure a ca te mare, ja n'aprendré,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 7
+            },
+            {
+              "name": "C",
+              "at": 14
+            },
+            {
+              "name": "B",
+              "at": 28
+            },
+            {
+              "name": "G",
+              "at": 41
+            }
+          ]
+        },
+        {
+          "text": "ja n'aprendré a fer aquell plat que t'agrada, ja n'aprendré,",
+          "chords": [
+            {
+              "name": "Bm",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 7
+            },
+            {
+              "name": "B",
+              "at": 25
+            },
+            {
+              "name": "G",
+              "at": 38
+            }
+          ]
+        },
+        {
+          "text": "ja n'aprendré a canviar el paper de vàter, ja n'aprendré,",
+          "chords": [
+            {
+              "name": "Bm",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 7
+            },
+            {
+              "name": "B",
+              "at": 22
+            },
+            {
+              "name": "G",
+              "at": 35
+            }
+          ]
+        },
+        {
+          "text": "ja n'aprendré a tirar-te algun \\\"piropo\\\", ja n'aprendré.",
+          "chords": [
+            {
+              "name": "Bm",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 7
+            },
+            {
+              "name": "B",
+              "at": 25
+            },
+            {
+              "name": "C",
+              "at": 34
+            }
+          ]
+        }
+      ],
+      "label": "Estrofa 2"
+    },
+    {
+      "kind": "interlude",
+      "lines": [
+        {
+          "text": "Jo et faria una cançó d'amor?",
+          "chords": []
+        },
+        {
+          "text": "I a vegades els ocells fan cagarades?",
+          "chords": []
+        }
+      ],
+      "label": "Interludi"
+    },
+    {
+      "kind": "chorus",
+      "lines": [
+        {
+          "text": "En una tribu apache,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 4
+            }
+          ]
+        },
+        {
+          "text": "en una tribu apache,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 4
+            }
+          ]
+        },
+        {
+          "text": "en una tribu apache,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 4
+            }
+          ]
+        },
+        {
+          "text": "en una tribu apache.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 4
+            }
+          ]
+        }
+      ],
+      "label": "En una tribu apache"
+    },
+    {
+      "kind": "outro",
+      "lines": [
+        {
+          "text": "En una tribu apache, (hey, hey, hey)",
+          "chords": []
+        },
+        {
+          "text": "en una tribu apache, (hey, hey, hey)",
+          "chords": []
+        },
+        {
+          "text": "en una tribu apache, (hey, hey, hey)",
+          "chords": []
+        },
+        {
+          "text": "en una tribu apache. (hey, hey, hey)",
+          "chords": []
+        },
+        {
+          "text": "En una tribu apache,",
+          "chords": []
+        },
+        {
+          "text": "en una tribu apache,",
+          "chords": []
+        },
+        {
+          "text": "en una tribu apache,",
+          "chords": []
+        },
+        {
+          "text": "en una tribu apache.",
+          "chords": []
+        }
+      ],
+      "label": "Outro"
+    }
+  ],
+  "id": "a-vegades",
+  "time_signature": "4/4",
+  "language": "ca",
+  "genre": [
+    "pop",
+    "pop-rock",
+    "catalan"
+  ],
+  "decade": 2010,
+  "difficulty": "beginner",
+  "tags": [
+    "4/4",
+    "barre-chords",
+    "verse-chorus",
+    "spoken-section",
+    "crowd-singalong"
+  ],
+  "type": "original",
+  "resources": [
+    {
+      "type": "youtube",
+      "label": "Search",
+      "url": "https://www.youtube.com/results?search_query=Els+Amics+de+les+Arts+A+Vegades"
+    },
+    {
+      "type": "wikipedia",
+      "label": "Espècies per catalogar",
+      "url": "https://ca.wikipedia.org/wiki/Esp%C3%A8cies_per_catalogar"
+    }
+  ],
+  "personal": {
+    "added_at": "2024-06-20",
+    "status": "learning"
+  },
+  "chords_used": [
+    "G",
+    "Bm",
+    "C",
+    "B",
+    "D",
+    "Em"
+  ]
+}

@@ -1,0 +1,1017 @@
+{
+  "title": "Paff el Drac Màgic",
+  "artist": "Falsterbo",
+  "album": "Folk",
+  "year": 1971,
+  "key": "G major",
+  "capo": 0,
+  "tuning": "Standard (E A D G B E)",
+  "source": {
+    "label": "Ultimate-Guitar",
+    "url": "https://tabs.ultimate-guitar.com/tab/4789823"
+  },
+  "notes": [
+    "Adaptació al català de «Puff the Magic Dragon» de Peter, Paul and Mary (1963).",
+    "Tota la cançó va sobre la mateixa roda: G Bm C G | C G Em A D, repetida fins al final.",
+    "Cada estrofa i l’outro acaben amb un G D de turnaround; cada tornada amb un G sol.",
+    "L’«Al fons del mar dels somnis…» és un afegit de Falsterbo, no és a l’original."
+  ],
+  "sections": [
+    {
+      "kind": "chorus",
+      "lines": [
+        {
+          "text": "Paff era un drac màgic que vivia al fons del mar,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 18
+            },
+            {
+              "name": "C",
+              "at": 27
+            },
+            {
+              "name": "G",
+              "at": 42
+            }
+          ]
+        },
+        {
+          "text": "però sol s'avorria molt i sortia a jugar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 10
+            },
+            {
+              "name": "Em",
+              "at": 16
+            },
+            {
+              "name": "A",
+              "at": 22
+            },
+            {
+              "name": "D",
+              "at": 31
+            }
+          ]
+        },
+        {
+          "text": "Paff era un drac màgic que vivia al fons del mar,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 17
+            },
+            {
+              "name": "C",
+              "at": 25
+            },
+            {
+              "name": "G",
+              "at": 42
+            }
+          ]
+        },
+        {
+          "text": "però sol s'avorria molt i sortia a jugar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 12
+            },
+            {
+              "name": "Em",
+              "at": 16
+            },
+            {
+              "name": "A",
+              "at": 22
+            },
+            {
+              "name": "D",
+              "at": 31
+            },
+            {
+              "name": "G",
+              "at": 35
+            }
+          ]
+        }
+      ],
+      "label": "Tornada"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Hi havia un nen petit que se l'estimava molt,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 15
+            },
+            {
+              "name": "C",
+              "at": 27
+            },
+            {
+              "name": "G",
+              "at": 39
+            }
+          ]
+        },
+        {
+          "text": "es trobaven a la platja tot jugant de sol a sol.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 16
+            },
+            {
+              "name": "Em",
+              "at": 22
+            },
+            {
+              "name": "A",
+              "at": 30
+            },
+            {
+              "name": "D",
+              "at": 37
+            }
+          ]
+        },
+        {
+          "text": "Tots dos van preparar un viatge molt llarg:",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 17
+            },
+            {
+              "name": "C",
+              "at": 24
+            },
+            {
+              "name": "G",
+              "at": 34
+            }
+          ]
+        },
+        {
+          "text": "volien anar a veure el món i travessar la mar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 14
+            },
+            {
+              "name": "Em",
+              "at": 20
+            },
+            {
+              "name": "A",
+              "at": 25
+            },
+            {
+              "name": "D",
+              "at": 30
+            },
+            {
+              "name": "G",
+              "at": 35
+            },
+            {
+              "name": "D",
+              "at": 41
+            }
+          ]
+        }
+      ],
+      "label": "Estrofa 1"
+    },
+    {
+      "kind": "chorus",
+      "lines": [
+        {
+          "text": "Paff era un drac màgic que vivia al fons del mar,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 18
+            },
+            {
+              "name": "C",
+              "at": 27
+            },
+            {
+              "name": "G",
+              "at": 42
+            }
+          ]
+        },
+        {
+          "text": "però sol s'avorria molt i sortia a jugar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 10
+            },
+            {
+              "name": "Em",
+              "at": 16
+            },
+            {
+              "name": "A",
+              "at": 22
+            },
+            {
+              "name": "D",
+              "at": 31
+            }
+          ]
+        },
+        {
+          "text": "Paff era un drac màgic que vivia al fons del mar,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 17
+            },
+            {
+              "name": "C",
+              "at": 25
+            },
+            {
+              "name": "G",
+              "at": 42
+            }
+          ]
+        },
+        {
+          "text": "però sol s'avorria molt i sortia a jugar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 12
+            },
+            {
+              "name": "Em",
+              "at": 16
+            },
+            {
+              "name": "A",
+              "at": 22
+            },
+            {
+              "name": "D",
+              "at": 31
+            },
+            {
+              "name": "G",
+              "at": 35
+            }
+          ]
+        }
+      ],
+      "label": "Tornada"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Quan hi havia tempesta, s'ho arreglaven molt bé:",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 15
+            },
+            {
+              "name": "C",
+              "at": 28
+            },
+            {
+              "name": "G",
+              "at": 40
+            }
+          ]
+        },
+        {
+          "text": "enfilant-se a la cua d'en Paff, vigilava el vent.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 16
+            },
+            {
+              "name": "Em",
+              "at": 23
+            },
+            {
+              "name": "A",
+              "at": 29
+            },
+            {
+              "name": "D",
+              "at": 35
+            }
+          ]
+        },
+        {
+          "text": "Nobles, reis i prínceps síinclinaven al seu pas,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 15
+            },
+            {
+              "name": "C",
+              "at": 28
+            },
+            {
+              "name": "G",
+              "at": 41
+            }
+          ]
+        },
+        {
+          "text": "i quan Paff els va fer un crit, els pirates van callar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 12
+            },
+            {
+              "name": "Em",
+              "at": 19
+            },
+            {
+              "name": "A",
+              "at": 30
+            },
+            {
+              "name": "D",
+              "at": 36
+            },
+            {
+              "name": "G",
+              "at": 40
+            },
+            {
+              "name": "D",
+              "at": 46
+            }
+          ]
+        }
+      ],
+      "label": "Estrofa 2"
+    },
+    {
+      "kind": "chorus",
+      "lines": [
+        {
+          "text": "Paff era un drac màgic que vivia al fons del mar,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 18
+            },
+            {
+              "name": "C",
+              "at": 27
+            },
+            {
+              "name": "G",
+              "at": 42
+            }
+          ]
+        },
+        {
+          "text": "però sol s'avorria molt i sortia a jugar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 10
+            },
+            {
+              "name": "Em",
+              "at": 16
+            },
+            {
+              "name": "A",
+              "at": 22
+            },
+            {
+              "name": "D",
+              "at": 31
+            }
+          ]
+        },
+        {
+          "text": "Paff era un drac màgic que vivia al fons del mar,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 17
+            },
+            {
+              "name": "C",
+              "at": 25
+            },
+            {
+              "name": "G",
+              "at": 42
+            }
+          ]
+        },
+        {
+          "text": "però sol s'avorria molt i sortia a jugar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 12
+            },
+            {
+              "name": "Em",
+              "at": 16
+            },
+            {
+              "name": "A",
+              "at": 22
+            },
+            {
+              "name": "D",
+              "at": 31
+            },
+            {
+              "name": "G",
+              "at": 35
+            }
+          ]
+        }
+      ],
+      "label": "Tornada"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Els dracs viuen per sempre, però els nens es fan grans,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 20
+            },
+            {
+              "name": "C",
+              "at": 25
+            },
+            {
+              "name": "G",
+              "at": 46
+            }
+          ]
+        },
+        {
+          "text": "va conèixer altres llocs pel món, que li van agradar tant",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 16
+            },
+            {
+              "name": "Em",
+              "at": 22
+            },
+            {
+              "name": "A",
+              "at": 34
+            },
+            {
+              "name": "D",
+              "at": 45
+            }
+          ]
+        },
+        {
+          "text": "que una nit molt grisa i trista el nen el va deixar",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 17
+            },
+            {
+              "name": "C",
+              "at": 24
+            },
+            {
+              "name": "G",
+              "at": 43
+            }
+          ]
+        },
+        {
+          "text": "i els brams de joia d'aquell drac es van acabar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 10
+            },
+            {
+              "name": "Em",
+              "at": 16
+            },
+            {
+              "name": "A",
+              "at": 21
+            },
+            {
+              "name": "D",
+              "at": 28
+            },
+            {
+              "name": "G",
+              "at": 33
+            },
+            {
+              "name": "D",
+              "at": 39
+            }
+          ]
+        }
+      ],
+      "label": "Estrofa 3"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Doblegant el seu llarg coll, el drac es va allunyar.",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 23
+            },
+            {
+              "name": "C",
+              "at": 31
+            },
+            {
+              "name": "G",
+              "at": 43
+            }
+          ]
+        },
+        {
+          "text": "Semblava que estava plovent quan es va posar a plorar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 16
+            },
+            {
+              "name": "Em",
+              "at": 29
+            },
+            {
+              "name": "A",
+              "at": 33
+            },
+            {
+              "name": "D",
+              "at": 42
+            }
+          ]
+        },
+        {
+          "text": "Tot sol molt trist i moix el drac es va allunyar",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 21
+            },
+            {
+              "name": "C",
+              "at": 28
+            },
+            {
+              "name": "G",
+              "at": 42
+            }
+          ]
+        },
+        {
+          "text": "i a poc a poc, molt lentament, se'n va tornar al fons del mar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 17
+            },
+            {
+              "name": "Em",
+              "at": 25
+            },
+            {
+              "name": "A",
+              "at": 33
+            },
+            {
+              "name": "D",
+              "at": 41
+            },
+            {
+              "name": "G",
+              "at": 49
+            },
+            {
+              "name": "D",
+              "at": 54
+            }
+          ]
+        }
+      ],
+      "label": "Estrofa 4"
+    },
+    {
+      "kind": "outro",
+      "lines": [
+        {
+          "text": "Al fons del mar dels somnis en Paf t'està esperant",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 22
+            },
+            {
+              "name": "C",
+              "at": 29
+            },
+            {
+              "name": "G",
+              "at": 41
+            }
+          ]
+        },
+        {
+          "text": "si el crides quan t'adormis vindrà a jugar saltant,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 13
+            },
+            {
+              "name": "Em",
+              "at": 19
+            },
+            {
+              "name": "A",
+              "at": 27
+            },
+            {
+              "name": "D",
+              "at": 34
+            }
+          ]
+        },
+        {
+          "text": "perquè de nens n'hi ha sempre i alguns mai no es fan grans",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 24
+            },
+            {
+              "name": "C",
+              "at": 32
+            },
+            {
+              "name": "G",
+              "at": 51
+            }
+          ]
+        },
+        {
+          "text": "i en Paf es posa alegre si el cridem tots cantant:",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 12
+            },
+            {
+              "name": "Em",
+              "at": 18
+            },
+            {
+              "name": "A",
+              "at": 24
+            },
+            {
+              "name": "D",
+              "at": 29
+            },
+            {
+              "name": "G",
+              "at": 33
+            },
+            {
+              "name": "D",
+              "at": 39
+            }
+          ]
+        }
+      ],
+      "label": "Outro"
+    },
+    {
+      "kind": "chorus",
+      "lines": [
+        {
+          "text": "Paff era un drac màgic que vivia al fons del mar,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 18
+            },
+            {
+              "name": "C",
+              "at": 27
+            },
+            {
+              "name": "G",
+              "at": 42
+            }
+          ]
+        },
+        {
+          "text": "però sol s'avorria molt i sortia a jugar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 10
+            },
+            {
+              "name": "Em",
+              "at": 16
+            },
+            {
+              "name": "A",
+              "at": 22
+            },
+            {
+              "name": "D",
+              "at": 31
+            }
+          ]
+        },
+        {
+          "text": "Paff era un drac màgic que vivia al fons del mar,",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Bm",
+              "at": 17
+            },
+            {
+              "name": "C",
+              "at": 25
+            },
+            {
+              "name": "G",
+              "at": 42
+            }
+          ]
+        },
+        {
+          "text": "però sol s'avorria molt i sortia a jugar.",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 12
+            },
+            {
+              "name": "Em",
+              "at": 16
+            },
+            {
+              "name": "A",
+              "at": 22
+            },
+            {
+              "name": "D",
+              "at": 31
+            },
+            {
+              "name": "G",
+              "at": 35
+            }
+          ]
+        }
+      ],
+      "label": "Tornada"
+    }
+  ],
+  "id": "paff-el-drac-magic",
+  "tempo_bpm": 92,
+  "time_signature": "6/8",
+  "language": "ca",
+  "genre": [
+    "folk",
+    "children",
+    "catalan"
+  ],
+  "decade": 1970,
+  "difficulty": "beginner",
+  "tags": [
+    "6/8",
+    "folk",
+    "storytelling",
+    "chorus-driven",
+    "open-chords"
+  ],
+  "type": "cover",
+  "original": {
+    "artist": "Peter, Paul and Mary",
+    "title": "Puff the Magic Dragon",
+    "year": 1963
+  },
+  "resources": [
+    {
+      "type": "lyrics",
+      "label": "Viasona",
+      "url": "https://www.viasona.cat/grup/falsterbo-3/folk/puf-el-drac-magic"
+    },
+    {
+      "type": "youtube",
+      "label": "Peter, Paul and Mary - Puff the Magic Dragon (1963)",
+      "url": "https://www.youtube.com/watch?v=z15pxWUXvLY"
+    },
+    {
+      "type": "wikipedia",
+      "label": "Puff the Magic Dragon",
+      "url": "https://en.wikipedia.org/wiki/Puff,_the_Magic_Dragon"
+    },
+    {
+      "type": "wikipedia",
+      "label": "Falsterbo (grup)",
+      "url": "https://ca.wikipedia.org/wiki/Falsterbo"
+    }
+  ],
+  "personal": {
+    "added_at": "2024-06-20",
+    "status": "learning"
+  },
+  "chords_used": [
+    "G",
+    "Bm",
+    "C",
+    "Em",
+    "A",
+    "D"
+  ]
+}

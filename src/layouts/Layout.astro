@@ -1,0 +1,106 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Chord charts for guitar." } = Astro.props;
+const fullTitle = title === "Chords" ? "Chords" : `${title} · Chords`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#efe8d6" />
+    <title>{fullTitle}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..800,0..100,0..1&family=JetBrains+Mono:wght@400..700&display=swap"
+    />
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23efe8d6'/%3E%3Cpath d='M9 7v18M23 7v18M7 11h18M7 21h18' stroke='%23181410' stroke-width='2'/%3E%3C/svg%3E" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__inner wrap">
+        <a href="/" class="topbar__brand" aria-label="Chords — home">
+          <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+            <circle cx="14" cy="26" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="26" cy="22" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M14 26 L26 22 L26 8 L14 12 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <span class="topbar__brand-text">Chords</span>
+        </a>
+        <nav class="topbar__nav" aria-label="Primary">
+          <slot name="nav" />
+          <a href="/chords/" class="topbar__link">Chords</a>
+          <a href="/" class="topbar__link">Songs</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap main">
+      <slot />
+    </main>
+
+    <style>
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(239, 232, 214, .92);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--ink);
+      }
+      .topbar__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-block: .85rem;
+      }
+      .topbar__brand {
+        display: inline-flex;
+        align-items: center;
+        gap: .55rem;
+        color: var(--ink);
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 1.25rem;
+        letter-spacing: -.01em;
+      }
+      .topbar__brand-text { line-height: 1; }
+      .topbar__nav {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .topbar__link {
+        font-family: var(--mono);
+        font-size: .72rem;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+      .topbar__link:hover { color: var(--blood); }
+
+      .main {
+        padding-block: 1.25rem 3rem;
+      }
+
+      @media (max-width: 540px) {
+        .topbar__inner { padding-block: .65rem; }
+        .topbar__brand-text { font-size: 1.1rem; }
+      }
+    </style>
+  </body>
+</html>

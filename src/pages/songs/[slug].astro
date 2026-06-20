@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SongSheet from "../../components/SongSheet.astro";
+import { songs, getSong } from "../../data/songs";
+
+export function getStaticPaths() {
+  return songs.map((s) => ({ params: { slug: s.id } }));
+}
+
+const { slug } = Astro.params;
+const song = getSong(slug!);
+
+if (!song) {
+  return Astro.redirect("/404");
+}
+---
+
+<Layout title={`${song.title} — ${song.artist}`}>
+  <a href="/" class="back">← Songs</a>
+  <SongSheet song={song} />
+</Layout>
+
+<style>
+  .back {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-fade);
+    margin-bottom: 1rem;
+    transition: color var(--t-fast) var(--ease);
+  }
+  .back:hover { color: var(--blood); }
+</style>

@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Not found">
+  <section class="nf">
+    <p class="nf__num">404</p>
+    <h1 class="nf__title">Wrong fret.</h1>
+    <p class="nf__body">
+      That song isn't in the book yet.
+      <a href="/">Back to songs →</a>
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .nf {
+    padding-block: 3rem 5rem;
+    max-width: 32rem;
+  }
+  .nf__num {
+    font-family: var(--mono);
+    font-size: .75rem;
+    letter-spacing: .25em;
+    color: var(--blood);
+    margin: 0 0 1rem;
+  }
+  .nf__title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 8vw, 4.5rem);
+    line-height: .9;
+    letter-spacing: -.03em;
+    margin: 0 0 1rem;
+  }
+  .nf__title::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 5px;
+    background: var(--blood);
+    margin-top: .35rem;
+  }
+  .nf__body {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+  .nf__body a {
+    color: var(--blood);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+</style>

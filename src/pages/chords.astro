@@ -1,0 +1,514 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ChordCard from "../components/ChordCard.astro";
+import {
+  listChords,
+  groupByTier,
+  TIER_ORDER,
+  TIER_LABEL,
+  TIER_DESCRIPTION,
+  CATEGORY_LABEL,
+  type Category,
+} from "../lib/chords";
+
+const entries = listChords();
+const groups = groupByTier(entries);
+const total = entries.length;
+
+const categories = Array.from(
+  new Set(entries.map((e) => e.chord.category ?? "major")),
+).sort((a, b) =>
+  (CATEGORY_LABEL[a as Category] ?? a).localeCompare(
+    CATEGORY_LABEL[b as Category] ?? b,
+  ),
+) as Category[];
+---
+
+<Layout title="Biblioteca de Acordes" description="Visualizador de acordes de guitarra con notas, digitación y tier por dificultad.">
+  <section class="hero">
+    <div class="hero__title-block">
+      <h1 class="hero__title">Biblioteca de Acordes</h1>
+      <p class="hero__lede">
+        {total} acords organitzats per dificultat. Cerca pel nom o
+        filtra per tier i categoria.
+      </p>
+    </div>
+
+    <div class="search" role="search">
+      <label for="q" class="search__label">Cerca</label>
+      <div class="search__field">
+        <svg class="search__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M16.5 16.5 L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input
+          id="q"
+          type="search"
+          name="q"
+          class="search__input"
+          placeholder="Am, Cadd9, Fsus4…"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+        />
+        <button type="button" class="search__clear" aria-label="Esborra la cerca" hidden>×</button>
+      </div>
+
+      <div class="filters" data-filters>
+        <span class="filters__group">
+          <span class="filters__caption">Dificultat</span>
+          {TIER_ORDER.map((t) => (
+            <button
+              type="button"
+              class={`filter-chip filter-chip--tier-${t}`}
+              data-filter="tier"
+              data-value={t}
+              aria-pressed="false"
+            >{TIER_LABEL[t]}</button>
+          ))}
+        </span>
+        <span class="filters__group">
+          <span class="filters__caption">Categoria</span>
+          {categories.map((c) => (
+            <button
+              type="button"
+              class="filter-chip"
+              data-filter="category"
+              data-value={c}
+              aria-pressed="false"
+            >{CATEGORY_LABEL[c] ?? c}</button>
+          ))}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="results" aria-live="polite">
+    <p class="results__count" data-count>
+      {total} acords
+    </p>
+
+    {TIER_ORDER.map((tier) => {
+      const group = groups[tier];
+      if (group.length === 0) return null;
+      return (
+        <section class="chordlib__section" data-tier-section={tier}>
+          <header class="chordlib__head">
+            <h2 class="chordlib__title">{TIER_LABEL[tier]}</h2>
+            <p class="chordlib__desc">{TIER_DESCRIPTION[tier]}</p>
+            <span class="chordlib__count">{group.length}</span>
+          </header>
+          <div class="chordlib__grid">
+            {group.map((e) => (
+              <ChordCard name={e.name} chord={e.chord} />
+            ))}
+          </div>
+        </section>
+      );
+    })}
+
+    <p class="results__empty" data-empty hidden>
+      Cap acord coincideix amb <strong data-empty-q></strong>.
+    </p>
+  </section>
+
+  <div class="toolbar">
+    <button type="button" class="toolbar__btn" data-print>
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </svg>
+      Imprimeix
+    </button>
+  </div>
+</Layout>
+
+<script>
+  const input = document.getElementById("q") as HTMLInputElement | null;
+  const count = document.querySelector("[data-count]") as HTMLElement | null;
+  const empty = document.querySelector("[data-empty]") as HTMLElement | null;
+  const emptyQ = document.querySelector("[data-empty-q]") as HTMLElement | null;
+  const clearBtn = document.querySelector(".search__clear") as HTMLButtonElement | null;
+  const filterChips = Array.from(
+    document.querySelectorAll<HTMLButtonElement>(".filter-chip"),
+  );
+  const cards = Array.from(
+    document.querySelectorAll<HTMLElement>(".chordcard"),
+  );
+  const sections = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-tier-section]"),
+  );
+  const printBtn = document.querySelector("[data-print]") as HTMLButtonElement | null;
+
+  function normalize(s: string): string {
+    return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+
+  function activeFilters() {
+    const map: Record<string, Set<string>> = { tier: new Set(), category: new Set() };
+    for (const chip of filterChips) {
+      if (chip.getAttribute("aria-pressed") === "true") {
+        const kind = chip.dataset.filter;
+        const val = chip.dataset.value;
+        if (kind && val) map[kind].add(val);
+      }
+    }
+    return map;
+  }
+
+  function applyAll() {
+    if (!input || !count || !empty || !emptyQ) return;
+    const q = normalize(input.value.trim());
+    const f = activeFilters();
+    let shown = 0;
+    const visibleByTier: Record<string, number> = {};
+
+    for (const card of cards) {
+      const name = card.dataset.name ?? "";
+      const tier = card.dataset.tier ?? "";
+      const category = card.dataset.category ?? "";
+
+      const matchText = !q || normalize(name).includes(q);
+      const matchTier = f.tier.size === 0 || f.tier.has(tier);
+      const matchCat = f.category.size === 0 || f.category.has(category);
+
+      const match = matchText && matchTier && matchCat;
+      card.hidden = !match;
+      if (match) {
+        shown++;
+        visibleByTier[tier] = (visibleByTier[tier] ?? 0) + 1;
+      }
+    }
+
+    for (const sec of sections) {
+      const t = sec.dataset.tierSection ?? "";
+      sec.hidden = (visibleByTier[t] ?? 0) === 0;
+    }
+
+    count.textContent = shown === cards.length
+      ? `${cards.length} acords`
+      : `${shown} de ${cards.length}`;
+    empty.hidden = shown !== 0;
+    emptyQ.textContent = input.value.trim();
+    if (clearBtn) clearBtn.hidden = input.value.length === 0;
+  }
+
+  if (input) {
+    input.addEventListener("input", applyAll);
+    input.addEventListener("search", applyAll);
+  }
+  clearBtn?.addEventListener("click", () => {
+    if (!input) return;
+    input.value = "";
+    applyAll();
+    input.focus();
+  });
+
+  for (const chip of filterChips) {
+    chip.addEventListener("click", () => {
+      const isActive = chip.getAttribute("aria-pressed") === "true";
+      chip.setAttribute("aria-pressed", String(!isActive));
+      chip.classList.toggle("is-active", !isActive);
+      applyAll();
+    });
+  }
+
+  printBtn?.addEventListener("click", () => window.print());
+
+  applyAll();
+</script>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: 1.5rem 2rem;
+    align-items: end;
+    padding-block: .5rem 1.5rem;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .hero__title-block { display: flex; flex-direction: column; gap: .6rem; }
+  .hero__title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+    font-size: clamp(2.4rem, 6.5vw, 4.5rem);
+    line-height: .9;
+    letter-spacing: -.035em;
+    margin: 0;
+    position: relative;
+  }
+  .hero__title::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 5px;
+    background: var(--blood);
+    margin-top: .35rem;
+  }
+  .hero__lede {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 1rem;
+    color: var(--ink-soft);
+    max-width: 36rem;
+    line-height: 1.5;
+  }
+
+  .search { width: 100%; }
+  .search__label {
+    display: block;
+    font-family: var(--mono);
+    font-size: .65rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink-fade);
+    margin-bottom: .4rem;
+  }
+  .search__field {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    padding: .65rem .9rem;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-radius: 2px;
+    transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+  }
+  .search__field:focus-within {
+    border-color: var(--blood);
+    box-shadow: 4px 4px 0 0 var(--blood);
+  }
+  .search__icon { color: var(--ink-soft); flex: 0 0 auto; }
+  .search__input {
+    flex: 1;
+    font: inherit;
+    font-family: var(--mono);
+    font-size: 1rem;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  .search__input::placeholder { color: var(--ink-fade); }
+  .search__clear {
+    font-family: var(--mono);
+    font-size: 1.1rem;
+    color: var(--ink-fade);
+    line-height: 1;
+    padding: .25rem .45rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: transparent;
+    cursor: pointer;
+    transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+  .search__clear:hover { color: var(--blood); border-color: var(--blood); }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .85rem 1.1rem;
+    margin-top: .9rem;
+  }
+  .filters__group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .35rem;
+  }
+  .filters__caption {
+    font-family: var(--mono);
+    font-size: .62rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--ink-fade);
+    margin-right: .15rem;
+  }
+  .filter-chip {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .04em;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid var(--rule);
+    padding: .2rem .55rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition:
+      color var(--t-fast) var(--ease),
+      border-color var(--t-fast) var(--ease),
+      background var(--t-fast) var(--ease);
+  }
+  .filter-chip:hover { color: var(--ink); border-color: var(--ink); }
+  .filter-chip.is-active {
+    color: var(--paper);
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .filter-chip--tier-principiante.is-active { background: #5a8c4a; border-color: #5a8c4a; }
+  .filter-chip--tier-intermedio.is-active  { background: var(--gold); border-color: var(--gold); }
+  .filter-chip--tier-avanzado.is-active   { background: var(--blue); border-color: var(--blue); }
+  .filter-chip--tier-experto.is-active    { background: var(--blood); border-color: var(--blood); }
+
+  .results { margin-top: 1rem; }
+  .results__count {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-fade);
+    margin: 0 0 1.5rem;
+  }
+  .results__empty {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    text-align: center;
+    font-family: var(--sans);
+    color: var(--ink-soft);
+    background: var(--paper-deep);
+    border: 1px dashed var(--ink-fade);
+  }
+  .results__empty strong { color: var(--blood); font-family: var(--mono); }
+
+  .chordlib__section {
+    margin-bottom: 2.5rem;
+  }
+  .chordlib__section[hidden] { display: none; }
+  .chordlib__head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: .35rem 1rem;
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: .45rem;
+    margin-bottom: 1rem;
+  }
+  .chordlib__title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    margin: 0;
+    letter-spacing: -.015em;
+  }
+  .chordlib__desc {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: .9rem;
+    color: var(--ink-soft);
+    flex: 1 1 auto;
+  }
+  .chordlib__count {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .18em;
+    color: var(--blood);
+    border: 1px solid var(--blood);
+    padding: .1rem .45rem;
+    border-radius: 2px;
+  }
+  .chordlib__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: .85rem;
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+  }
+  .toolbar__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid var(--ink);
+    padding: .45rem .85rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition:
+      color var(--t-fast) var(--ease),
+      background var(--t-fast) var(--ease),
+      border-color var(--t-fast) var(--ease);
+  }
+  .toolbar__btn:hover {
+    color: var(--paper);
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .toolbar__btn:hover svg { stroke: var(--paper); }
+
+  @media (max-width: 820px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .chordlib__grid {
+      grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+      gap: .65rem;
+    }
+  }
+  @media (max-width: 420px) {
+    .chordlib__grid {
+      grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    }
+  }
+
+  /* ──────────── Print mode ──────────── */
+  @media print {
+    :global(.topbar),
+    .search,
+    .filters,
+    .toolbar {
+      display: none !important;
+    }
+    .hero {
+      padding-block: 0 1rem;
+      border-bottom: 1px solid #000;
+    }
+    .chordlib__section {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .chordlib__grid {
+      grid-template-columns: repeat(6, 1fr);
+      gap: .5rem;
+    }
+    .chordcard {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      box-shadow: none !important;
+      transform: none !important;
+      border-color: #000 !important;
+      background: #fff !important;
+    }
+    .chordcard:hover {
+      background: #fff !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+    :global(.chord__name-text),
+    :global(.chord__stringlabel),
+    :global(.chord__baseref),
+    :global(.chord__svg line),
+    :global(.chord__svg rect) {
+      color: #000 !important;
+      fill: #000 !important;
+      stroke: #000 !important;
+    }
+    :global(body) {
+      background: #fff !important;
+    }
+    .results__count { color: #555 !important; }
+    .chordlib__count { color: #000 !important; border-color: #000 !important; }
+  }
+</style>

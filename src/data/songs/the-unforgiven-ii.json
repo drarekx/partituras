@@ -1,0 +1,1024 @@
+{
+  "title": "The Unforgiven II",
+  "artist": "Metallica",
+  "album": "Reload",
+  "year": 1997,
+  "key": "B major (written shape)",
+  "capo": 0,
+  "tuning": "Standard (E A D G B E) — or tune down ½ step like the studio cut",
+  "source": {
+    "label": "Ultimate-Guitar",
+    "url": "https://tabs.ultimate-guitar.com/tab/metallica/the-unforgiven-ii-chords-98209"
+  },
+  "notes": [
+    "Metallica recorded this in Eb tuning (½ step down). The shapes below are written for standard tuning so the chord names read as the studio sounds.",
+    "Intro: each pair of chords is one bar. Listen for the triplet pickup Kirk plays on the B string before the downbeat of bar 1.",
+    "On the chorus the F barre is held for two beats then resolves to G — let it ring."
+  ],
+  "sections": [
+    {
+      "kind": "intro",
+      "lines": [
+        {
+          "text": "                                       ",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 8
+            },
+            {
+              "name": "G",
+              "at": 16
+            },
+            {
+              "name": "Em",
+              "at": 24
+            }
+          ],
+          "repeat": "4×"
+        }
+      ]
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Lay beside me,",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 4
+            },
+            {
+              "name": "G",
+              "at": 12
+            }
+          ]
+        },
+        {
+          "text": "Tell me what they've done,",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 12
+            }
+          ]
+        },
+        {
+          "text": "And speak the words I wanna hear",
+          "chords": [
+            {
+              "name": "C",
+              "at": 4
+            },
+            {
+              "name": "G",
+              "at": 20
+            }
+          ]
+        },
+        {
+          "text": "To make my demons run.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 3
+            },
+            {
+              "name": "Am",
+              "at": 13
+            }
+          ]
+        },
+        {
+          "text": "The door is locked now,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 8
+            }
+          ]
+        },
+        {
+          "text": "But it's opened if you're true.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 9
+            },
+            {
+              "name": "Am",
+              "at": 21
+            }
+          ]
+        },
+        {
+          "text": "If you can understand the me,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 6
+            },
+            {
+              "name": "G",
+              "at": 17
+            }
+          ]
+        },
+        {
+          "text": "Then I can understand the you.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 14
+            },
+            {
+              "name": "Am",
+              "at": 0
+            }
+          ]
+        }
+      ],
+      "label": "Verse 1"
+    },
+    {
+      "kind": "interlude",
+      "lines": [
+        {
+          "text": "                                       ",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 8
+            },
+            {
+              "name": "G",
+              "at": 16
+            },
+            {
+              "name": "Em",
+              "at": 24
+            }
+          ],
+          "repeat": "2×"
+        }
+      ],
+      "label": "Interlude"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Lay beside me,",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 4
+            },
+            {
+              "name": "G",
+              "at": 12
+            }
+          ]
+        },
+        {
+          "text": "Under wicked skies.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 7
+            }
+          ]
+        },
+        {
+          "text": "Through black of day, dark of night,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 17
+            }
+          ]
+        },
+        {
+          "text": "We share this paralyse.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 3
+            },
+            {
+              "name": "Am",
+              "at": 11
+            }
+          ]
+        },
+        {
+          "text": "The door cracks open,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 6
+            }
+          ]
+        },
+        {
+          "text": "But there's no sun shining through.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 9
+            },
+            {
+              "name": "Am",
+              "at": 27
+            }
+          ]
+        },
+        {
+          "text": "Black heart scarring darker still,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 17
+            }
+          ]
+        },
+        {
+          "text": "Still no sun shining through,",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 15
+            },
+            {
+              "name": "Dm",
+              "at": 0
+            }
+          ]
+        },
+        {
+          "text": "No no sun shining through,",
+          "chords": [
+            {
+              "name": "F",
+              "at": 3
+            },
+            {
+              "name": "G",
+              "at": 12
+            }
+          ]
+        },
+        {
+          "text": "No no sun shining.",
+          "chords": [
+            {
+              "name": "F",
+              "at": 3
+            },
+            {
+              "name": "Am",
+              "at": 12
+            }
+          ]
+        }
+      ],
+      "label": "Verse 2"
+    },
+    {
+      "kind": "chorus",
+      "lines": [
+        {
+          "text": "What I've felt, what I've known,",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "Turn the pages, turn the stone",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "E7",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "Behind the door should I open it for you?",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 2
+            },
+            {
+              "name": "G",
+              "at": 21
+            },
+            {
+              "name": "C",
+              "at": 28
+            },
+            {
+              "name": "E7",
+              "at": 32
+            }
+          ]
+        },
+        {
+          "text": "What I've felt, what I've known",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "Sick and tired I stand alone,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "E7",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "Could you be there? 'Cause I'm the one who waits for you.",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 6
+            },
+            {
+              "name": "G",
+              "at": 27
+            },
+            {
+              "name": "C",
+              "at": 38
+            }
+          ]
+        },
+        {
+          "text": "Or are you unforgiven, too?",
+          "chords": [
+            {
+              "name": "E7",
+              "at": 10
+            },
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 8
+            },
+            {
+              "name": "G",
+              "at": 16
+            },
+            {
+              "name": "Em",
+              "at": 24
+            }
+          ]
+        }
+      ],
+      "label": "Chorus"
+    },
+    {
+      "kind": "interlude",
+      "lines": [
+        {
+          "text": "                                       ",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 8
+            },
+            {
+              "name": "G",
+              "at": 16
+            },
+            {
+              "name": "Em",
+              "at": 24
+            }
+          ],
+          "repeat": "2×"
+        }
+      ],
+      "label": "Interlude"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Come lay beside me,",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 5
+            },
+            {
+              "name": "G",
+              "at": 13
+            }
+          ]
+        },
+        {
+          "text": "This won't hurt I swear.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 9
+            }
+          ]
+        },
+        {
+          "text": "She loves me not, she loves me still,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 16
+            }
+          ]
+        },
+        {
+          "text": "But she'll never love again.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 11
+            },
+            {
+              "name": "Am",
+              "at": 21
+            }
+          ]
+        },
+        {
+          "text": "She lay beside me,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 3
+            }
+          ]
+        },
+        {
+          "text": "But she'll be there when I'm gone.",
+          "chords": [
+            {
+              "name": "G",
+              "at": 0
+            },
+            {
+              "name": "Em",
+              "at": 10
+            },
+            {
+              "name": "Am",
+              "at": 21
+            }
+          ]
+        },
+        {
+          "text": "Black heart scarring darker still,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 17
+            }
+          ]
+        },
+        {
+          "text": "Yeah she'll be there when I'm gone.",
+          "chords": [
+            {
+              "name": "E7",
+              "at": 4
+            },
+            {
+              "name": "Dm",
+              "at": 21
+            }
+          ]
+        },
+        {
+          "text": "Yes she'll be there when I'm gone,",
+          "chords": [
+            {
+              "name": "F",
+              "at": 4
+            },
+            {
+              "name": "G",
+              "at": 16
+            }
+          ]
+        },
+        {
+          "text": "Dead sure she'll be there.",
+          "chords": [
+            {
+              "name": "F",
+              "at": 5
+            },
+            {
+              "name": "Am",
+              "at": 14
+            }
+          ]
+        }
+      ],
+      "label": "Verse 3"
+    },
+    {
+      "kind": "chorus",
+      "lines": [
+        {
+          "text": "What I've felt, what I've known,",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "Turn the pages, turn the stone",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "E7",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "Behind the door should I open it for you?",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 2
+            },
+            {
+              "name": "G",
+              "at": 21
+            },
+            {
+              "name": "C",
+              "at": 28
+            },
+            {
+              "name": "E7",
+              "at": 32
+            }
+          ]
+        },
+        {
+          "text": "What I've felt, what I've known",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "Sick and tired I stand alone,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "E7",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "Could you be there? 'Cause I'm the one who waits for you.",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 6
+            },
+            {
+              "name": "G",
+              "at": 27
+            },
+            {
+              "name": "C",
+              "at": 38
+            }
+          ]
+        },
+        {
+          "text": "Or are you unforgiven, too?",
+          "chords": [
+            {
+              "name": "E7",
+              "at": 10
+            },
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 8
+            },
+            {
+              "name": "G",
+              "at": 16
+            },
+            {
+              "name": "Em",
+              "at": 24
+            }
+          ]
+        }
+      ],
+      "label": "Chorus"
+    },
+    {
+      "kind": "solo",
+      "lines": [
+        {
+          "text": "                                       ",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 8
+            },
+            {
+              "name": "G",
+              "at": 16
+            },
+            {
+              "name": "Em",
+              "at": 24
+            }
+          ],
+          "repeat": "2×"
+        }
+      ],
+      "label": "Solo"
+    },
+    {
+      "kind": "verse",
+      "lines": [
+        {
+          "text": "Lay beside me,",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "C",
+              "at": 4
+            },
+            {
+              "name": "G",
+              "at": 12
+            }
+          ]
+        },
+        {
+          "text": "Tell me what I've done.",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 0
+            },
+            {
+              "name": "Am",
+              "at": 9
+            }
+          ]
+        },
+        {
+          "text": "The door is closed, so are your eyes,",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "But now I see the sun,",
+          "chords": [
+            {
+              "name": "Em",
+              "at": 4
+            },
+            {
+              "name": "Dm",
+              "at": 15
+            }
+          ]
+        },
+        {
+          "text": "Now I see the sun, yes now I see it.",
+          "chords": [
+            {
+              "name": "F",
+              "at": 4
+            },
+            {
+              "name": "G",
+              "at": 13
+            },
+            {
+              "name": "E7",
+              "at": 18
+            }
+          ]
+        }
+      ],
+      "label": "Verse 4"
+    },
+    {
+      "kind": "chorus",
+      "lines": [
+        {
+          "text": "What I've felt, what I've known,",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "Turn the pages, turn the stone",
+          "chords": [
+            {
+              "name": "C",
+              "at": 0
+            },
+            {
+              "name": "E7",
+              "at": 18
+            }
+          ]
+        },
+        {
+          "text": "Behind the door should I open it for you?",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 2
+            },
+            {
+              "name": "G",
+              "at": 21
+            },
+            {
+              "name": "C",
+              "at": 28
+            },
+            {
+              "name": "E7",
+              "at": 32
+            }
+          ]
+        },
+        {
+          "text": "What I've felt, what I've known",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 6
+            },
+            {
+              "name": "C",
+              "at": 13
+            },
+            {
+              "name": "G",
+              "at": 18
+            },
+            {
+              "name": "E7",
+              "at": 26
+            }
+          ]
+        },
+        {
+          "text": "I take this key and I bury it in you",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 4
+            },
+            {
+              "name": "C",
+              "at": 14
+            },
+            {
+              "name": "G",
+              "at": 20
+            }
+          ]
+        },
+        {
+          "text": "Because you're unforgiven too.",
+          "chords": [
+            {
+              "name": "E7",
+              "at": 8
+            }
+          ]
+        },
+        {
+          "text": "Never me, never me",
+          "chords": [
+            {
+              "name": "Am",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 6
+            },
+            {
+              "name": "C",
+              "at": 11
+            }
+          ]
+        },
+        {
+          "text": "Because you're unforgiven too.",
+          "chords": [
+            {
+              "name": "D",
+              "at": 0
+            },
+            {
+              "name": "G",
+              "at": 9
+            }
+          ]
+        }
+      ],
+      "label": "Final Chorus"
+    }
+  ],
+  "id": "the-unforgiven-ii",
+  "tempo_bpm": 66,
+  "time_signature": "4/4",
+  "language": "en",
+  "genre": [
+    "metal",
+    "rock",
+    "ballad"
+  ],
+  "decade": 1990,
+  "difficulty": "intermediate",
+  "tags": [
+    "metal",
+    "ballad",
+    "barre-chords",
+    "string-bending",
+    "legato"
+  ],
+  "type": "original",
+  "resources": [
+    {
+      "type": "youtube",
+      "label": "Official music video",
+      "url": "https://www.youtube.com/watch?v=tAGnKpE4NCI"
+    },
+    {
+      "type": "wikipedia",
+      "label": "Song article",
+      "url": "https://en.wikipedia.org/wiki/The_Unforgiven_II"
+    },
+    {
+      "type": "wikipedia",
+      "label": "Load (album)",
+      "url": "https://en.wikipedia.org/wiki/Load_(album)"
+    }
+  ],
+  "personal": {
+    "added_at": "2024-06-20",
+    "status": "learning"
+  },
+  "chords_used": [
+    "Am",
+    "C",
+    "G",
+    "Em",
+    "Dm",
+    "F"
+  ]
+}
