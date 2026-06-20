@@ -155,7 +155,7 @@ def resolve_release(repo: str, tag: str) -> dict:
 
 # ────────────────────────── Download & extract ──────────────────────────
 
-def download_and_extract(repo: str, tag: str, dest: Path, *, token: str | None) -> None:
+def download_and_extract(repo: str, tag: str, dest: Path, *, token: str | None, keep_zip: bool = True) -> None:
     rel = resolve_release(repo, tag)
     print(f"Repo      : {repo}")
     print(f"Release   : {rel['tag']} — {rel['name']}")
@@ -177,6 +177,10 @@ def download_and_extract(repo: str, tag: str, dest: Path, *, token: str | None) 
         members = zf.namelist()
         zf.extractall(dest)
     print(f"  ✓ {len(members)} fitxers → {dest}/")
+
+    if not keep_zip:
+        zip_path.unlink()
+        print(f"  ✓ zip esborrat (--no-zip)")
 
     stamp = dest / ".release.json"
     stamp.write_text(
@@ -207,6 +211,8 @@ def main() -> int:
     ap.add_argument("--nightlies", action="store_true", help="(amb --list) filtrar només nightly/*")
     ap.add_argument("--limit", type=int, default=20, help="(amb --list) quantes releases mostrar")
     ap.add_argument("--token", default=__import__("os").environ.get("GITHUB_TOKEN"), help="token GitHub (opcional)")
+    ap.add_argument("--no-zip", dest="keep_zip", action="store_false", help="esborra el zip després d'extreure")
+    ap.add_argument("--keep-zip", dest="keep_zip", action="store_true", default=True, help=argparse.SUPPRESS)
     args = ap.parse_args()
 
     if not args.repo:
@@ -226,7 +232,7 @@ def main() -> int:
             print(f"{r['tag']:<40} {size:>10}  {pub}")
         return 0
 
-    download_and_extract(args.repo, args.tag, args.dest, token=args.token)
+    download_and_extract(args.repo, args.tag, args.dest, token=args.token, keep_zip=args.keep_zip)
     print(f"\n✓ Llest. Per servir localment:  cd {args.dest} && python3 -m http.server")
     return 0
 

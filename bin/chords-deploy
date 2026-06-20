@@ -1,0 +1,124 @@
+#!/usr/bin/env bash
+# chords-deploy — descarrega i desplega l'última release del songbook.
+#
+# Ús:
+#   chords-deploy                          # última release → ~/Sites/chords
+#   chords-deploy v0.1.0                   # tag concret
+#   chords-deploy --dest /var/www/chords   # destí custom
+#   chords-deploy --repo owner/other       # altre repo
+#   chords-deploy --no-zip                 # no deixa el .zip al destí
+#   chords-deploy --install                # symlink a ~/.local/bin/chords-deploy
+#   chords-deploy --help
+
+set -euo pipefail
+
+# Resol symlinks per trobar el repo root real (no el del symlink a ~/.local/bin)
+SOURCE="$0"
+while [ -L "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ "$SOURCE" != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+REPO_ROOT="$(cd -P "$(dirname "$SOURCE")/.." && pwd)"
+SCRIPT="$REPO_ROOT/scripts/download-release.py"
+
+VERSION="latest"
+DEST="${CHORDS_DEPLOY_DEST:-$HOME/Sites/chords}"
+REPO="${CHORDS_REPO:-}"
+INSTALL=0
+NO_ZIP=0
+
+usage() {
+  sed -n '2,12p' "$0" | sed 's/^# \{0,1\}//'
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --install)  INSTALL=1; shift ;;
+    --dest)     DEST="${2:-}"; shift 2 ;;
+    --dest=*)   DEST="${1#*=}"; shift ;;
+    --repo)     REPO="${2:-}"; shift 2 ;;
+    --repo=*)   REPO="${1#*=}"; shift ;;
+    --no-zip)   NO_ZIP=1; shift ;;
+    --keep-zip) NO_ZIP=0; shift ;;
+    -h|--help)  usage; exit 0 ;;
+    --list|--nightlies|--limit)
+                # Pass-through to download-release.py
+                python3 "$SCRIPT" "$@"
+                exit $? ;;
+    --limit=*)  python3 "$SCRIPT" --limit "${1#*=}"; exit $? ;;
+    --)         shift; break ;;
+    -*)         echo "✗ Opció desconeguda: $1" >&2; usage >&2; exit 1 ;;
+    *)          VERSION="$1"; shift ;;
+  esac
+done
+
+# ───── --install: symlink a ~/.local/bin ─────
+if [[ $INSTALL -eq 1 ]]; then
+  BIN_DIR="${CHORDS_BIN_DIR:-$HOME/.local/bin}"
+  mkdir -p "$BIN_DIR"
+  ln -sf "$REPO_ROOT/bin/chords-deploy" "$BIN_DIR/chords-deploy"
+  echo "✓ Symlink creat → $BIN_DIR/chords-deploy"
+  if command -v chords-deploy >/dev/null 2>&1; then
+    echo "  ja accessible via PATH: $(command -v chords-deploy)"
+  else
+    echo "  ⚠ afegeix $BIN_DIR al PATH si encara no hi és:"
+    echo "      export PATH=\"$BIN_DIR:\$PATH\""
+  fi
+  exit 0
+fi
+
+# ───── Sanity checks ─────
+if [[ ! -f "$SCRIPT" ]]; then
+  echo "✗ No trobo $SCRIPT" >&2; exit 1
+fi
+if ! command -v python3 >/dev/null 2>&1; then
+  echo "✗ cal python3 al PATH" >&2; exit 1
+fi
+
+# ───── Backup dest existent ─────
+BACKUP=""
+if [[ -d "$DEST" ]] && [[ -n "$(ls -A "$DEST" 2>/dev/null || true)" ]]; then
+  BACKUP="${DEST}.bak.$(date +%Y%m%d-%H%M%S)"
+  cp -a "$DEST" "$BACKUP"
+  echo "  backup → $BACKUP"
+fi
+
+mkdir -p "$DEST"
+TMP="$(mktemp -d)"
+trap 'rm -rf "$TMP"' EXIT
+
+# ───── Download a TMP, després movem a DEST net ─────
+ARGS=(--tag "$VERSION" --dest "$TMP")
+[[ -n "$REPO" ]] && ARGS+=(--repo "$REPO")
+[[ $NO_ZIP -eq 1 ]] && ARGS+=(--no-zip)
+python3 "$SCRIPT" "${ARGS[@]}"
+
+# Esborrem el contingut del dest però conservem el directori
+find "$DEST" -mindepth 1 -delete 2>/dev/null || true
+shopt -s dotglob nullglob
+mv "$TMP"/* "$DEST"/
+shopt -u dotglob nullglob
+
+# ───── Verificació ─────
+if [[ -f "$DEST/index.html" ]]; then
+  SIZE=$(du -sh "$DEST" | cut -f1)
+  HTML_COUNT=$(find "$DEST" -name '*.html' | wc -l | tr -d ' ')
+  echo ""
+  echo "✓ Desplegat a $DEST ($SIZE, $HTML_COUNT pàgines)"
+  if [[ -n "$BACKUP" ]]; then
+    rm -rf "$BACKUP"
+    echo "  backup esborrat"
+  fi
+  echo ""
+  echo "  Per servir localment:"
+  echo "      cd $DEST && python3 -m http.server 8000"
+else
+  echo ""
+  echo "✗ Verificació fallida — restaurant backup"
+  find "$DEST" -mindepth 1 -delete 2>/dev/null || true
+  if [[ -n "$BACKUP" ]]; then
+    mv "$BACKUP" "$DEST"
+  fi
+  exit 1
+fi
